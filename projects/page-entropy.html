@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- STATE OF ENTROPY -->
+  <title>State of Entropy — Noah Kasper</title>
+  <meta name="description" content="State of Entropy — Noah Kasper. A zero-gravity horror FPS made through the Magic Makers co-op at MAGIC Spell Studios, with Noah as Design Lead &amp; Technical Artist.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="State of Entropy — Noah Kasper">
+  <meta property="og:description" content="State of Entropy — Noah Kasper. A zero-gravity horror FPS made through the Magic Makers co-op at MAGIC Spell Studios, with Noah as Design Lead &amp; Technical Artist.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og-card.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/projects/page-entropy.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/projects/page-entropy.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=87">
+  <script src="../js/reel.js?v=12" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NOAH<span>.</span>K</a>
+  <div class="nav-r">
+    <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="nav-back" href="../index.html#work">All Work</a>
+  </div>
+</nav>
+
+<main class="reel reel-chaptered">
+
+  <!-- STAGE -->
+  <div class="reel-stage" style="--ar: 16 / 9">
+    <div class="reel-media">
+      <img src="../images/entropy/hero-logo.webp" width="1920" height="1080"
+           fetchpriority="high" decoding="async" alt="The ENTROPY logo glowing cyan over a round hatch, with pods ringed around it">
+      <p class="reel-stage-cap">Logo <span class="reel-credit">· Noah Kasper</span></p>
+    </div>
+  </div>
+
+  <header class="reel-head">
+    <div class="reel-titlebar">
+      <div>
+        <div class="hero-eyebrow">Zero-G Horror FPS — MAGIC Spell Studios</div>
+        <h1 class="reel-title">STATE OF ENTROPY</h1>
+      </div>
+      <div class="reel-links">
+        <a class="hero-cta" href="https://caterwaul-studio.itch.io/entropy" target="_blank" rel="noopener">Play on itch.io <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+
+    <dl class="reel-facts">
+      <div class="reel-fact"><dt>Role</dt><dd>Design Lead &amp; Technical Artist</dd></div>
+      <div class="reel-fact"><dt>Team</dt><dd>13 devs · managed 4 artists</dd></div>
+      <div class="reel-fact"><dt>Timeline</dt><dd>Dec 2024 – Present</dd></div>
+      <div class="reel-fact"><dt>Engine</dt><dd>Unity (URP) · C#</dd></div>
+    </dl>
+
+    <p class="reel-about"><strong>State of Entropy</strong> is a narrative-driven, zero-gravity cosmic stalker horror game made in Unity. Movement is survival, and mastering it is the only way to escape an intelligent, relentless presence hunting you through a derelict spacecraft.</p>
+
+    <div class="reel-brief">
+      <p class="reel-pitch">We developed it through the <strong>Magic Makers Program</strong>, a co-op program at RIT’s MAGIC Spell Studios. In this environment, our production was treated as a professional, industry-grade product, with stakeholders and expectations for the term. It started as a class prototype and grew to a team of 13, with more than 20 different members over its development. I co-founded the project and have been one of its leads ever since, both during our time with MAGIC and after.</p>
+      <ul class="reel-points">
+        <li><a href="#b-alien"><b>The Geist</b> (the alien) — dithered shader, IK stepping, soft-body physics, eye-stem IK</a></li>
+        <li><a href="#b-zerog"><b>Zero-G gameplay</b> — floating objects, grab &amp; throw, air breaches</a></li>
+        <li><a href="#ch-graybox"><b>Level design</b> — blocked out level one, reworked it with the project lead after playtests, and modeled most of its rooms</a></li>
+        <li><a href="#b-blood"><b>Tech art</b> — procedural blood decals, room light groups, curved in-world terminals</a></li>
+      </ul>
+    </div>
+
+    <div class="reel-jump" role="navigation" aria-label="On this page">
+      <a href="#systems">Systems</a>
+      <a href="#development">Development</a>
+      <a href="#production">Production</a>
+      <a href="#postmortem">Postmortem</a>
+    </div>
+  </header>
+
+  <div class="reel-body">
+
+    <!-- SYSTEMS -->
+
+    <h2 class="reel-group" id="systems">Systems</h2>
+    <p class="reel-group-intro">The systems I built, captured from the latest build. How they got there is under Development.</p>
+
+    <!-- SYSTEM ROWS -->
+    <figure class="reel-block side side-wide" id="b-alien">
+      <div class="reel-media">
+        <video data-loop controls muted loop playsinline preload="none"
+               width="600" height="386" poster="../images/entropy/05-alien/alienfinal/closeup-poster.jpg"
+               aria-label="The Geist up close in a dark room beside a red-lit round door, its edges breaking into a see-through dither">
+          <source src="../images/entropy/05-alien/alienfinal/closeup.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Tech Art</span> <b>The Geist: shader &amp; locomotion</b> — the shader builds on Unity’s default Lit shader, which I modified to use curvature, edge and emissive maps I made during texturing, giving the Geist a pulsing bioluminescent glow and see-through edges. As a transparent material it lost most of its lighting and shadows in URP, so they’re faked with dithering and the shader stays opaque. Its locomotion is built from the stepper, soft-body physics and the eye-stem. Tobin Pedersen designed, modeled and rigged the Geist. <a href="#ch-alien">How it was built</a> <span class="reel-under"><span class="reel-under-k">Shader graph</span><a href="../images/entropy/systems/geist-graph-1.webp" data-zoom data-zoom-group="geist-graph" data-caption="GeistLit shader graph (1 of 2) — Unity’s Lit shader graph with two added groups, edge + scrolling alpha and alpha clip dithering"><img src="../images/entropy/systems/geist-graph-1-thumb.webp" width="214" height="84" loading="lazy" decoding="async" alt="Unity Shader Graph for GeistLit: the Edge + Scrolling Alpha and Alpha Clip Dithering groups above the Lit template groups"></a><a href="../images/entropy/systems/geist-graph-2.webp" data-zoom data-zoom-group="geist-graph" data-caption="GeistLit shader graph (2 of 2) — the Emissive group, with the Geist settings on the blackboard for rim alpha, min and max, alpha dithering, dither size and the emissive range"><img src="../images/entropy/systems/geist-graph-2-thumb.webp" width="148" height="84" loading="lazy" decoding="async" alt="Unity Shader Graph for GeistLit: the Emissive group, with the Geist settings listed on the blackboard"></a></span></figcaption>
+    </figure>
+
+    <figure class="reel-block side side-wide" id="b-zerog">
+      <div class="reel-media">
+        <video data-loop controls muted loop playsinline preload="none"
+               width="600" height="294" poster="../images/entropy/gameplay/zerog-props-still.webp"
+               aria-label="Loose props drifting weightless through a station room under a red alert light">
+          <source src="../images/entropy/gameplay/zerog.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Gameplay</span> <b>Floating objects</b> — props that float around the space and add to the zero-gravity atmosphere. They’re programmed to never stop bouncing, so they can’t get trapped in corners. Each carries its own mass and has some friction when it collides with walls and other objects. <span class="reel-under"><span class="reel-under-k">Floating object script</span><a href="../images/entropy/systems/floating-object.webp" data-zoom data-caption="Floating Object inspector — each prop’s starting direction, a set or random speed, torque, a minimum speed that keeps it moving, and friction or no-friction materials"><img src="../images/entropy/systems/floating-object-thumb.webp" width="166" height="84" loading="lazy" decoding="async" alt="Unity inspector for the Floating Object script: initial direction, speed and random speed range, torque, friction toggle, minimum speed, and friction materials"></a></span></figcaption>
+    </figure>
+
+    <figure class="reel-block side side-wide" id="b-grab">
+      <div class="reel-media">
+        <video data-loop controls muted loop playsinline preload="none"
+               width="600" height="332" poster="../images/entropy/systems/grab-throw.jpg"
+               aria-label="Grab and throw: carrying a crate in zero-G and throwing it at a round hatch">
+          <source src="../images/entropy/systems/grab-throw.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Gameplay</span> <b>Grab &amp; throw</b> — grabbable objects are marked by a billboard interact UI. A held object moves to a separate camera layer so it doesn’t clip through walls. Throwing it (left click) sends it forward and pushes you backward based on its mass. Another team member built the zero-G controller, and I built the bridges that connect interactions like this one to it.</figcaption>
+    </figure>
+
+    <figure class="reel-block side side-wide" id="b-pipes">
+      <div class="reel-media">
+        <video data-loop controls muted loop playsinline preload="none"
+               width="600" height="336" poster="../images/entropy/systems/pipe-burst.jpg?v=3"
+               aria-label="Floating down a dark maintenance tunnel when an air breach blasts out of a pipe and knocks the player off course">
+          <source src="../images/entropy/systems/pipe-burst.mp4?v=2" type="video/mp4">
+        </video>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Gameplay</span> <b>Air breaches</b> — air blasting out of broken pipes shoves you off course and hurts you on a direct hit. They add a threat that comes from the station falling apart, not from the alien. Dat Phan modeled the pipes, and I added the valves later.</figcaption>
+    </figure>
+
+    <!-- BLOOD DECAL SHADER -->
+    <figure class="reel-block side side-wide side-grid" id="b-blood">
+      <div class="reel-pair reel-grid2" style="--ar: 17 / 10">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="382" poster="../images/entropy/systems/blood-masking.jpg"
+                   aria-label="Procedural blood decals, masking: A bloody handprint decal on a floor, masked in and out">
+              <source src="../images/entropy/systems/blood-masking.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Masking</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="372" poster="../images/entropy/systems/blood-movement.jpg"
+                   aria-label="Procedural blood decals, movement: Blood splatter decal on a floor, its pattern shifting as it is moved">
+              <source src="../images/entropy/systems/blood-movement.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Movement</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="330" poster="../images/entropy/systems/blood-pooling.jpg"
+                   aria-label="Procedural blood decals, pooling: Blood splatter decal spreading into a full pool and drawing back">
+              <source src="../images/entropy/systems/blood-pooling.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Pooling</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="360" poster="../images/entropy/systems/blood-sharpness.jpg"
+                   aria-label="Procedural blood decals, edge sharpness: Blood decal edges going from soft and blurred to crisp">
+              <source src="../images/entropy/systems/blood-sharpness.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Edge sharpness</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Tech Art</span> <b>Procedural blood decals</b> — a world-space procedural system instead of repetitive texture-based decals, so bloodied rooms look unique. It was inspired by the VFX in <i>I See Red</i> and created from scratch. A single Perlin noise map drives its shape and colors, and variations of the noise control where the blood’s texture and normal map show. <span class="reel-under"><span class="reel-under-k">Shader graph</span><a href="../images/entropy/systems/blood-graph-1.webp" data-zoom data-zoom-group="blood-graph" data-caption="Blood decal shader graph (1 of 2) — a URP decal material driven by world-space noise, with separate dark and light masks"><img src="../images/entropy/systems/blood-graph-1-thumb.webp" width="151" height="84" loading="lazy" decoding="async" alt="Unity Shader Graph for BloodShader: world-space position and noise nodes building the dark and light masks"></a><a href="../images/entropy/systems/blood-graph-2.webp" data-zoom data-zoom-group="blood-graph" data-caption="Blood decal shader graph (2 of 2) — step ranges, colors, albedo, normal and roughness feeding the decal outputs"><img src="../images/entropy/systems/blood-graph-2-thumb.webp" width="161" height="84" loading="lazy" decoding="async" alt="Unity Shader Graph for BloodShader: the mask steps, colors and normal map feeding the decal outputs"></a></span></figcaption>
+    </figure>
+
+    <!-- DOOR SYSTEM -->
+    <figure class="reel-block side side-wide side-grid" id="b-doors">
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 5 / 3; --cols: minmax(0, 1.796fr) minmax(0, 1.509fr)">
+        <div class="reel-tile" style="--tar: 600 / 334">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="334" poster="../images/entropy/systems/doors.jpg"
+                   aria-label="Floating down a dark corridor as the round doors ahead open automatically">
+              <source src="../images/entropy/systems/doors.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Automatic</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1346 / 892">
+          <div class="reel-media"><a href="../images/entropy/systems/door-hologram.webp" data-zoom data-caption="Door status hologram — the Med Bay door, its name shown around the rim"><img src="../images/entropy/systems/door-hologram.webp" width="1346" height="892" loading="lazy" decoding="async" alt="A round door with red holographic MED BAY labels around its rim and a red light at its center"></a></div>
+          <p class="reel-tile-label">Status hologram</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Tech Art</span> <b>Door system</b> — a reusable door prefab with a central controller for manual or scripted events. Doors open on their own as the player approaches and stay open while they’re nearby. Each door holds its own status, and the shader pulls what it means from the controller to set colors, text and images. They started out button-activated, but playtesting showed automatic doors suited the gameplay better. <span class="reel-under"><span class="reel-under-k">Shader graph &amp; door manager</span><a href="../images/entropy/systems/door-graph.webp" data-zoom data-zoom-group="door-hood" data-caption="DoorFalloff shader graph — the status hologram, built from the label texture, its size and position, the background and text colors, emission and a radial fade"><img src="../images/entropy/systems/door-graph-thumb.webp" width="225" height="84" loading="lazy" decoding="async" alt="Unity Shader Graph for DoorFalloff: the label texture, colors and a radial falloff feeding the hologram output"></a><a href="../images/entropy/systems/door-manager.webp" data-zoom data-zoom-group="door-hood" data-caption="Door Manager in Play mode — all 15 doors, the 3 in range of the player, and the materials, icons and hologram colors for locked, unlocked and warning doors"><img src="../images/entropy/systems/door-manager-thumb.webp" width="128" height="84" loading="lazy" decoding="async" alt="Unity inspector for the Door Manager script in Play mode: a list of 15 doors, 3 doors in range, and the materials, icons and hologram colors for each door state"></a></span></figcaption>
+    </figure>
+
+    <!-- ROOM LIGHT GROUPS -->
+    <figure class="reel-block side side-wide side-grid" id="b-lights">
+      <div class="reel-pair reel-grid2" style="--ar: 9 / 5">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="334" poster="../images/entropy/systems/lights-flicker.jpg"
+                   aria-label="Room light groups, flicker: a terminal finishes uploading and the room’s lights flicker back on">
+              <source src="../images/entropy/systems/lights-flicker.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Flicker</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="334" poster="../images/entropy/systems/lights-winddown.jpg"
+                   aria-label="Room light groups, wind-down: the server room lockdown lever is pulled and the lights power down">
+              <source src="../images/entropy/systems/lights-winddown.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Wind-down</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Tech Art</span> <b>Room light groups</b> — each room’s lights are grouped so the team can drive them from scripted events, with functions for flickers, wind-downs, intensity and color changes. <span class="reel-under"><span class="reel-under-k">Light manager</span><a href="../images/entropy/systems/light-code.webp" data-zoom data-zoom-group="lights-hood" data-caption="LightManager functions — flicker a room’s lights once (in order or shuffled) or on a loop, fade them all out, or multiply their intensity, each over a set duration"><img src="../images/entropy/systems/light-code-thumb.webp" width="271" height="84" loading="lazy" decoding="async" alt="LightManager script in the code editor: FlickerLights, FlickerLightsForever, FlickerIntensity, FadeOutAllLights and MultiplyAllLights, plus helpers to save, disable and shuffle lights"></a><a href="../images/entropy/systems/light-manager.webp" data-zoom data-zoom-group="lights-hood" data-caption="Light Manager inspector — each room’s lights grouped into a list, like the dining and escape pod groups"><img src="../images/entropy/systems/light-manager-thumb.webp" width="123" height="84" loading="lazy" decoding="async" alt="Unity inspector for the Light Manager script: a Dining Light Group of five lights and an Escape Light Group of seven"></a></span></figcaption>
+    </figure>
+
+    <!-- CURVED TERMINALS -->
+    <figure class="reel-block side side-wide side-grid" id="b-terminals">
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 3 / 2; --cols: minmax(0, 1.546fr) minmax(0, 1.584fr)">
+        <div class="reel-tile" style="--tar: 600 / 388">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="388" poster="../images/entropy/systems/terminal.jpg"
+                   aria-label="An in-world terminal with a curved screen showing NEEDS CONNECTION, its UI blinking">
+              <source src="../images/entropy/systems/terminal.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">In-world</p>
+        </div>
+        <div class="reel-tile" style="--tar: 960 / 606">
+          <div class="reel-media"><a href="../images/entropy/systems/terminal-rendertexture.webp" data-zoom data-caption="Render texture setup — the terminal’s Unity UI canvas, framed by its own camera"><img src="../images/entropy/systems/terminal-rendertexture.webp" width="960" height="606" loading="lazy" decoding="async" alt="Unity editor: the terminal's UI canvas with its text elements, framed by the wireframe view of the camera that renders it to a texture"></a></div>
+          <p class="reel-tile-label">Render texture</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Tech Art</span> <b>Curved terminals</b> — the terminal UI is a normal Unity GUI canvas, rendered by its own camera into a render texture and projected onto the curved screen mesh’s UVs, so it keeps full UI functionality on a curved surface.</figcaption>
+    </figure>
+
+    <!-- DEVELOPMENT -->
+
+    <h2 class="reel-group" id="development">Development</h2>
+    <p class="reel-group-intro">The project’s full development timeline, from the first class prototype to the current build, with my process laid out at each stage. Each chapter covers what that phase was, what changed, and what I worked on.</p>
+
+    <!-- CHAPTER: Early prototype -->
+    <section class="reel-chapter" id="ch-prototype" aria-labelledby="ch-prototype-t">
+      <div class="reel-chapter-head">
+        <h3 class="reel-chapter-title" id="ch-prototype-t">Early prototype</h3>
+        <p class="reel-chapter-intro">It started as a class project with problems all over its gameplay, visuals and development. Work across the semester was scattered and undisciplined, and most of what you see here was rushed in over the last week or two. We applied to the Magic Makers Program with it and didn’t get in because it wasn’t polished enough.</p>
+        <p class="reel-chapter-intro reel-chapter-role">I helped originate the concept and its core mechanics, prototyped the doors and the object throwing and physics, and built the entire map, including the layout, modeling and colliders.</p>
+      </div>
+
+      <figure class="reel-block key" id="b-trailer">
+        <figcaption class="reel-cap"><b>Prototype trailer</b> — the original ENTROPY trailer, from the early prototype.</figcaption>
+        <div class="reel-media reel-embed" style="--ar: 16 / 9">
+          <a class="reel-yt" href="https://www.youtube.com/watch?v=MR2-tiW9oK0" data-yt="MR2-tiW9oK0" aria-label="Play trailer: ENTROPY, early prototype">
+            <img src="../images/entropy/01-early-prototype/trailer-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
+            <span class="reel-chip"><span aria-hidden="true">&#9656; </span>Play trailer</span>
+          </a>
+        </div>
+      </figure>
+
+      <figure class="reel-block" id="b-early-editor">
+        <div class="reel-pair" style="--ar: 1920 / 894">
+          <div class="reel-media"><a href="../images/entropy/01-early-prototype/editor-hall.jpg" data-zoom data-zoom-group="early"><img src="../images/entropy/01-early-prototype/editor-hall.jpg" width="1920" height="892" loading="lazy" decoding="async" alt="Unity editor: an early Level_1 corridor with orange handrails under red light"></a></div>
+          <div class="reel-media"><a href="../images/entropy/01-early-prototype/editor-spawn.jpg" data-zoom data-zoom-group="early"><img src="../images/entropy/01-early-prototype/editor-spawn.jpg" width="1920" height="895" loading="lazy" decoding="async" alt="Unity editor: the early spawn room, cryo pods beside a red-lit doorway"></a></div>
+        </div>
+        <figcaption class="reel-cap"><b>In the editor</b> — a corridor and the spawn room, from the early Level_1 layout and models.</figcaption>
+      </figure>
+    </section>
+
+    <!-- CHAPTER: Final prototype -->
+    <section class="reel-chapter" id="ch-pitch" aria-labelledby="ch-pitch-t">
+      <div class="reel-chapter-head">
+        <h3 class="reel-chapter-title" id="ch-pitch-t">Final prototype</h3>
+        <p class="reel-chapter-intro">Confident in the idea, we spent the next 3–4 months of the semester working on our own to overhaul it into something we could present to MAGIC. We finalized more assets, fixed bugs, made the gameplay clearer and built up the atmosphere to match the game we wanted to make. This is the prototype that got us into the Magic Makers Program, and in June 2025 we entered the program and moved into full production.</p>
+        <p class="reel-chapter-intro reel-chapter-role">I kept building out the station map, including its layout, modeling and colliders, along with the doors and object physics.</p>
+      </div>
+
+      <figure class="reel-block key" id="b-final-gameplay">
+        <figcaption class="reel-cap"><b>Gameplay</b> — zero-G movement and object physics through the station map.</figcaption>
+        <div class="reel-media">
+          <video data-loop controls muted loop playsinline preload="none" style="width:100%"
+                 width="960" height="540" poster="../images/entropy/02-final-prototype/gameplay-poster.jpg?v=2"
+                 aria-label="Final prototype gameplay: floating down dark corridors past handrails, drifting crates and an air breach">
+            <source src="../images/entropy/02-final-prototype/gameplay.mp4?v=2" type="video/mp4">
+          </video>
+        </div>
+      </figure>
+
+      <!-- Station map: all three are ~2.2:1, so they share --ar -->
+      <figure class="reel-block" id="b-station">
+        <div class="reel-trio" style="--ar: 216 / 100">
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/station-map.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/station-map.webp" width="1189" height="541" loading="lazy" decoding="async" alt="Outside view of the whole prototype station: looping corridor sections and a round end room, above a planet"></a></div>
+            <p class="reel-tile-label">Station</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/editor-1.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/editor-1.webp" width="1920" height="893" loading="lazy" decoding="async" alt="Unity editor: a textured corridor section with handrails and hazard stripes"></a></div>
+            <p class="reel-tile-label">Corridor</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/editor-2.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/editor-2.webp" width="1920" height="898" loading="lazy" decoding="async" alt="Unity editor: looking up a vertical shaft lined with handrails"></a></div>
+            <p class="reel-tile-label">Shaft</p>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>In-editor</b> — the complete demo layout and new assets.</figcaption>
+      </figure>
+
+      <figure class="reel-block" id="b-final-ingame">
+        <div class="reel-trio" style="--ar: 16 / 9">
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/ingame-1.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/ingame-1.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="In-game: a tilted corridor edge under hot orange light, dithered shading"></a></div>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/ingame-2.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/ingame-2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="In-game: a hand prompt over a glowing handrail beside the cryo pods"></a></div>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/02-final-prototype/ingame-3.webp" data-zoom data-zoom-group="final-proto"><img src="../images/entropy/02-final-prototype/ingame-3.webp" width="2048" height="1152" loading="lazy" decoding="async" alt="In-game: a dark corridor beside a lit orange panel and handrail"></a></div>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>In-game</b> — the prototype’s dithered, low-light look, with a hand prompt on a handrail.</figcaption>
+      </figure>
+    </section>
+
+    <!-- CHAPTER: Graybox -->
+    <section class="reel-chapter" id="ch-graybox" aria-labelledby="ch-graybox-t">
+      <div class="reel-chapter-head">
+        <h3 class="reel-chapter-title" id="ch-graybox-t">Graybox</h3>
+        <p class="reel-chapter-intro">Getting into Magic Makers meant turning a tech demo into a full game, so we leaned into zero gravity and into making the station feel real. Level one is linear, but it’s built to feel like you’re exploring, with verticality and lighting that points the way. Halls and some core rooms have no floor or true up and down, while checkpoint rooms keep a floor and ceiling so you can get your bearings. Playtesting showed our mechanics were hard to pick up, so level one also became the tutorial. Its scripted beats teach the mechanics, hint at the alien and show what happened before you woke up.</p>
+        <p class="reel-chapter-intro reel-chapter-role">I built the first blockout and the primitive prefabs the team prototyped with, designed the landmark spaces, and kept reworking the layout through playtests.</p>
+      </div>
+
+      <!-- Level design doc beside the level plan -->
+      <div class="reel-split">
+        <!-- DOCUMENT READER -->
+        <figure class="reel-block" id="b-graybox-doc">
+          <div class="reel-reader">
+            <div class="reel-reader-bar">
+              <span class="reel-reader-title">Level design doc</span>
+              <span class="reel-reader-count">5 pages</span>
+              <a class="reel-reader-btn" href="../images/entropy/03-greybox/level-one-design-doc.pdf" target="_blank" rel="noopener">PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+            <div class="reel-reader-view">
+              <div class="reel-reader-pages" tabindex="0" role="region" aria-label="Level design doc, 5 pages">
+                <img src="../images/entropy/03-greybox/ldd-1.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Level design doc, page 1: Act 1 purpose, mechanics and design choices">
+                <img src="../images/entropy/03-greybox/ldd-2.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Level design doc, page 2: gameplay beats B to H, most with a sound trigger">
+                <img src="../images/entropy/03-greybox/ldd-3.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Level design doc, page 3: the last gameplay beats and the engagement timeline">
+                <img src="../images/entropy/03-greybox/ldd-4.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Level design doc, page 4: the end of the engagement timeline, then the layout plan with the player's route">
+                <img src="../images/entropy/03-greybox/ldd-5.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Level design doc, page 5: the layout from above and a marked-up editor capture of a junction">
+              </div>
+            </div>
+          </div>
+          <figcaption class="reel-cap"><b>Level design doc</b> — the original version for level one, covering goals, gameplay beats with sound triggers, and an engagement timeline.</figcaption>
+        </figure>
+
+        <figure class="reel-block" id="b-graybox-plan">
+          <div class="reel-pair" style="--ar: 1837 / 1224">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/plan-route.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/plan-route.webp" width="1837" height="1224" loading="lazy" decoding="async" alt="Early level-one plan: gray primitive rooms labeled Cryochamber, Med Bay, Showers, Server Room, Escape Pod, Dorms and Dining Hall, with the player's route marked a to h"></a></div>
+            <div class="reel-media"><a href="../images/entropy/03-greybox/plan-top.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/plan-top.webp" width="809" height="374" loading="lazy" decoding="async" alt="The same primitive layout seen from directly above"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Level plan</b> — the first layout of level one, with the route from the cryochamber (a) to the dining hall (h). Every space looked the same, so playtesters couldn’t tell where to go. Nothing taught you the wrist monitor before the med bay, and after the server room a cramped junction with too many exits sent you from dining back to the dorm and back again. I designed landmark spaces so each area stands out, with the project lead’s sign-off, and they also help sell the station as a real facility.</figcaption>
+        </figure>
+      </div>
+
+      <figure class="reel-block" id="b-graybox-mid">
+        <div class="reel-pair" style="--ar: 1920 / 1091">
+          <div class="reel-media"><a href="../images/entropy/03-greybox/mid-junction.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/mid-junction.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Early graybox: a dark corridor junction with a blue padlock hologram and a glowing cyan screen"></a></div>
+          <div class="reel-media"><a href="../images/entropy/03-greybox/mid-cryo.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/mid-cryo.webp" width="2044" height="1173" loading="lazy" decoding="async" alt="Unity editor: the early cryochamber, pods ringed around a central hatch"></a></div>
+        </div>
+        <figcaption class="reel-cap"><b>Mid-development</b> — the blockout of a corridor junction and the cryochamber, seen in the editor.</figcaption>
+      </figure>
+
+      <!-- FINAL GRAYBOX: level map beside the rooms in play order -->
+      <figure class="reel-block key reel-lead" id="b-graybox">
+        <figcaption class="reel-cap"><b>Final graybox</b> — the whole level in-game after the project lead and I reordered it. The dorm hall comes first now, so you pick up the wrist monitor before the rest of the station opens up. The dorm hall loops back so you can revisit anything you missed, but that loop stays locked until the end, so we added a maintenance hall as the way forward. From there, each room leads straight to your next goal, through the med bay, maintenance and dining to the server room.</figcaption>
+        <div class="reel-media">
+          <a href="../images/entropy/03-greybox/graybox-map-final.webp" data-zoom data-zoom-group="graybox">
+            <img src="../images/entropy/03-greybox/graybox-map-final.webp" width="975" height="649" loading="lazy" decoding="async"
+                 alt="Final graybox of the whole level, seen from above at an angle: gray rooms and corridors joined by round doors, including Dining and Facilities">
+          </a>
+        </div>
+        <div class="reel-trio reel-grid" style="--ar: 16 / 9">
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/cryo.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/cryo.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Cryochamber graybox: pods ringed around a central hatch under cyan lights, red handrails on the walls"></a></div>
+            <p class="reel-tile-label">Cryochamber</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/dorm-hall.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/dorm-hall.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Crew Quarters graybox: the dorm hall, lit blue, a hand prompt on a handrail"></a></div>
+            <p class="reel-tile-label">Dorm hall</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/dorm.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/dorm.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Crew Quarters graybox: a dorm bunk with a blue cube prop, a hand prompt on a red handrail"></a></div>
+            <p class="reel-tile-label">Dorm</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/med-bay.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/med-bay.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Med bay graybox: a dark room with a round hatch, a cyan screen and handrails"></a></div>
+            <p class="reel-tile-label">Med bay</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/maintenance.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/maintenance.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Maintenance graybox: looking down a round tunnel toward a light, a red handrail in front"></a></div>
+            <p class="reel-tile-label">Maintenance</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/dining.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/dining.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Crew Quarters graybox: gray dining tables with red handrails under a cold light"></a></div>
+            <p class="reel-tile-label">Dining</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/server.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/server.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Final graybox: looking down the red-lit server room toward a round hatch glowing cyan at the far end"></a></div>
+            <p class="reel-tile-label">Server room</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/escape-pods.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/escape-pods-card.webp" width="1161" height="653" loading="lazy" decoding="async" alt="Escape pod bay under red emergency light: pods on either side, a floor hatch with a warning-triangle hologram reading ESCAPE PODS"></a></div>
+            <p class="reel-tile-label">Escape pods</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media"><a href="../images/entropy/03-greybox/pause-menu.webp" data-zoom data-zoom-group="graybox"><img src="../images/entropy/03-greybox/pause-menu.webp" width="898" height="498" loading="lazy" decoding="async" alt="Pause menu titled SUSPENDED_ with Resume, Last Checkpoint, Options, Main Menu and Desktop, over a body floating in zero-G; labeled Test Build v8.5.2025"></a></div>
+            <p class="reel-tile-label">Pause menu</p>
+          </div>
+        </div>
+      </figure>
+
+    </section>
+
+    <!-- CHAPTER: Final build -->
+    <section class="reel-chapter" id="ch-environments" aria-labelledby="ch-environments-t">
+      <div class="reel-chapter-head">
+        <h3 class="reel-chapter-title" id="ch-environments-t">Final build</h3>
+        <p class="reel-chapter-intro">Every area went from graybox to concept to finished assets, all in the same art style. Based on player feedback, we reworked the player controller and dropped realism wherever it hurt gameplay. Narrative and story beats now drive progression through the level.</p>
+        <p class="reel-chapter-intro reel-chapter-role">I modeled and laid out each core room by hand, working from Tobin Pedersen’s concept art, except the dining hall, which Hayden Bush-Resko made with my help. The halls use a modular kit I commissioned from another team member, and I made the joint connectors. Each finished room below has its concept in the corner and its purpose in the level, in play order.</p>
+      </div>
+
+      <!-- FINAL LEVEL -->
+      <figure class="reel-block reel-feature reel-feature--even" id="b-env-map">
+        <div class="reel-tile reel-feature-main" style="--ar: 1266 / 1112">
+          <div class="reel-media">
+            <a href="../images/entropy/04-environments/final-map.webp" data-zoom data-zoom-group="env" data-caption="Level one, finished — the whole level from above">
+              <img src="../images/entropy/04-environments/final-map.webp" width="1266" height="1112" loading="lazy" decoding="async"
+                   alt="The finished level one seen from above: textured rooms joined by corridors, from the blue-lit cryochamber to the red-lit server room">
+            </a>
+          </div>
+          <p class="reel-tile-label">From above</p>
+        </div>
+        <div class="reel-tile reel-feature-side" style="--ar: 600 / 336">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="336" poster="../images/entropy/04-environments/gameplay-poster.jpg"
+                   aria-label="Floating down the dorm hall past drifting props toward a red alert light">
+              <source src="../images/entropy/04-environments/gameplay.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">In play</p>
+        </div>
+        <figcaption class="reel-cap"><b>Level one, finished</b> — the whole level from above, and moving through it in play. Its rooms follow in play order. Compare the <a href="#b-graybox">final graybox</a>.</figcaption>
+      </figure>
+
+      <!-- ROOM CARDS -->
+      <div class="reel-rooms">
+        <figure class="reel-block reel-room" id="b-env-cryo">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 2073; --ch: 1943"><a href="../images/entropy/04-environments/01-cryo-bay/concept.webp" data-zoom data-zoom-group="env" data-caption="Cryochamber — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/01-cryo-bay/concept-thumb.webp" width="480" height="450" loading="lazy" decoding="async" alt="Cryochamber concept: a top-down sketch of pods radiating from a central hatch"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/01-cryo-bay/final.webp" data-zoom data-zoom-group="env" data-caption="Cryochamber — final, in-engine"><img src="../images/entropy/04-environments/01-cryo-bay/final.webp" width="1657" height="920" loading="lazy" decoding="async" alt="Cryochamber, in-engine: looking up at the round central hatch, cryo pods with glowing lids ringed around it"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Cryochamber</b> — there’s no floor, so it introduces zero-G right away. It’s a safe space to get used to the player controller.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-dorm-hall">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 1816; --ch: 1004"><a href="../images/entropy/04-environments/02-dorm-hall/concept.webp" data-zoom data-zoom-group="env" data-caption="Dorm hall — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/02-dorm-hall/concept-thumb.webp" width="480" height="265" loading="lazy" decoding="async" alt="Dorm hall concepts: a view down the octagonal hallway, the bunk pods, and wall props (a notice board and lamps)"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/02-dorm-hall/final.webp" data-zoom data-zoom-group="env" data-caption="Dorm hall — final, in-engine"><img src="../images/entropy/04-environments/02-dorm-hall/final-card.webp" width="1091" height="606" loading="lazy" decoding="async" alt="Dorm hall, in-engine: a curved blue-lit corridor under a red alert light, loose props floating"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Dorm hall</b> — a long, open space to get used to long-range traversal. Storage units forced open introduce floating objects.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-dorm">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 2048; --ch: 834"><a href="../images/entropy/04-environments/03-dorm/concept.jpg" data-zoom data-zoom-group="env" data-caption="Dorm — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/03-dorm/concept-thumb.webp" width="480" height="195" loading="lazy" decoding="async" alt="Dorm room concept: two perspective sketches of a bunk room"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/03-dorm/final.webp" data-zoom data-zoom-group="env" data-caption="Dorm — final, in-engine"><img src="../images/entropy/04-environments/03-dorm/final.webp" width="1656" height="927" loading="lazy" decoding="async" alt="Dorm room, in-engine: a narrow bunk room, bunk alcoves on both walls, lit by an orange wall screen"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Dorm</b> — a room personal to your character, where you find your wrist monitor to move forward. It’s also your first time connecting to Alan, your AI companion, which continues as a gameplay mechanic.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-med-bay">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 956; --ch: 1004"><a href="../images/entropy/04-environments/04-med-bay/concept.webp" data-zoom data-zoom-group="env" data-caption="Med bay — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/04-med-bay/concept-thumb.webp" width="480" height="504" loading="lazy" decoding="async" alt="Med bay concept: the medical chair and wall cabinets in two sketches"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/04-med-bay/final.webp" data-zoom data-zoom-group="env" data-caption="Med bay — final, in-engine"><img src="../images/entropy/04-environments/04-med-bay/final.webp" width="1661" height="911" loading="lazy" decoding="async" alt="Med bay, in-engine: a medical chair on a raised platform beside a round hatch, under cold white light"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Med bay</b> — introduces the healing system.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-maintenance">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 1311; --ch: 1522"><a href="../images/entropy/04-environments/05-maintenance/concept.webp" data-zoom data-zoom-group="env" data-caption="Maintenance — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/05-maintenance/concept-thumb.webp" width="480" height="557" loading="lazy" decoding="async" alt="Maintenance tunnel concept: looking down a round tunnel lined with pipes and valve wheels"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/05-maintenance/final.webp" data-zoom data-zoom-group="env" data-caption="Maintenance — final, in-engine"><img src="../images/entropy/04-environments/05-maintenance/final.webp" width="1659" height="908" loading="lazy" decoding="async" alt="Maintenance tunnel, in-engine: a dark pipe-lined tunnel with valve wheels, leading to a round hatch"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Maintenance</b> — a back-alley route we added in the reorder, and a natural place to introduce the air breaches, a danger that comes from the station itself instead of the Geist.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-dining">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 1875; --ch: 754"><a href="../images/entropy/04-environments/06-dining/concept.webp" data-zoom data-zoom-group="env" data-caption="Dining — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/06-dining/concept-thumb.webp" width="480" height="193" loading="lazy" decoding="async" alt="Dining hall concept: two perspective sketches of the dining room"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/06-dining/final.webp" data-zoom data-zoom-group="env" data-caption="Dining — final, in-engine, with assets by Hayden Bush-Resko"><img src="../images/entropy/04-environments/06-dining/final.webp" width="1656" height="906" loading="lazy" decoding="async" alt="Dining hall, in-engine: a pale room under a red alert light, a blood pool on the floor and objects floating"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Dining</b> — the first appearance of blood, told through environmental storytelling. Hayden Bush-Resko made this room’s assets, and I helped her develop it.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-server">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 1735; --ch: 1668"><a href="../images/entropy/04-environments/07-server-room/concept.webp" data-zoom data-zoom-group="env" data-caption="Server room — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/07-server-room/concept-thumb.webp" width="480" height="461" loading="lazy" decoding="async" alt="Server room concept (work in progress): server rack towers sketched from above and the front"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/07-server-room/final.webp" data-zoom data-zoom-group="env" data-caption="Server room — final, in-engine"><img src="../images/entropy/04-environments/07-server-room/final.webp" width="1661" height="920" loading="lazy" decoding="async" alt="Server room, in-engine: server racks with red status lights on both sides of a lit console"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Server room</b> — a direct but scripted encounter with the Geist. It’s the tense peak of the level’s engagement curve and builds toward the next level.</figcaption>
+        </figure>
+
+        <figure class="reel-block reel-room" id="b-env-escape-pods">
+          <div class="reel-room-view">
+            <div class="reel-media reel-room-concept" style="--cw: 1875; --ch: 899"><a href="../images/entropy/04-environments/08-escape-pods/concept.jpg" data-zoom data-zoom-group="env" data-caption="Escape pods — concept art by Tobin Pedersen"><img src="../images/entropy/04-environments/08-escape-pods/concept-thumb.webp" width="480" height="230" loading="lazy" decoding="async" alt="Escape pods concept: a sketch looking up at the pod hatch"></a></div>
+            <div class="reel-media reel-room-final" style="--ar: 9 / 5"><a href="../images/entropy/04-environments/08-escape-pods/escape.webp" data-zoom data-zoom-group="env" data-caption="Escape pods — final, in-engine"><img src="../images/entropy/04-environments/08-escape-pods/final-card.webp" width="1595" height="886" loading="lazy" decoding="async" alt="Escape pod room, in-engine: a crew member's body floating among blood spatter beside the pod hatch"></a></div>
+          </div>
+          <figcaption class="reel-cap"><b>Escape pods</b> — leaving the server room, you find the fully bloodied scene of a crewmate who tried to escape. It shows where the Geist came from and where the blood in the dining hall came from. From here you head back through the dining hall and out the back toward the vocational wing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CHAPTER: The Geist -->
+    <section class="reel-chapter" id="ch-alien" aria-labelledby="ch-alien-t">
+      <div class="reel-chapter-head">
+        <h3 class="reel-chapter-title" id="ch-alien-t">The Geist</h3>
+        <p class="reel-chapter-intro">The alien began as a programmer’s first pass, before the design had a clear vision. We started over with sea life as the inspiration, aiming for something ethereal, freaky and overall weird.</p>
+        <p class="reel-chapter-intro reel-chapter-role">I textured the Geist, built its dithered shader, and rebuilt its locomotion with IK stepping, soft-body physics and an eye-stem IK. Tobin Pedersen designed, modeled and rigged it.</p>
+      </div>
+
+      <!-- Process strip -->
+      <figure class="reel-block" id="b-geist-art">
+        <div class="reel-trio reel-grid reel-justify" style="--ar: 3 / 2; --cols: minmax(0, 1.605fr) minmax(0, 2.456fr) minmax(0, 1.514fr) minmax(0, 1.473fr)">
+          <div class="reel-tile" style="--tar: 2779 / 1731">
+            <div class="reel-media"><a href="../images/entropy/05-alien/old-alien/first-pass-ingame.webp" data-zoom data-zoom-group="geist" data-caption="The Geist — the original programmer’s first pass, before we overhauled it"><img src="../images/entropy/05-alien/old-alien/first-pass-thumb.webp" width="640" height="399" loading="lazy" decoding="async" alt="The early alien in-game, the programmer’s first pass: a black, spindly silhouette with a gray face, in a red-lit corridor"></a></div>
+            <p class="reel-tile-label">First pass <span class="reel-credit">· programmer</span></p>
+          </div>
+          <div class="reel-tile" style="--tar: 2048 / 834">
+            <div class="reel-media"><a href="../images/entropy/05-alien/alienconcept/concept.webp" data-zoom data-zoom-group="geist" data-caption="The Geist — concept art by Tobin Pedersen"><img src="../images/entropy/05-alien/alienconcept/concept.webp" width="2048" height="834" loading="lazy" decoding="async" alt="Geist concept: three jellyfish-like sketches with trailing tentacles"></a></div>
+            <p class="reel-tile-label">Concept <span class="reel-credit">· Tobin Pedersen</span></p>
+          </div>
+          <div class="reel-tile" style="--tar: 848 / 560">
+            <div class="reel-media"><a href="../images/entropy/05-alien/alienprogress/texture.webp" data-zoom data-zoom-group="geist" data-caption="The Geist — the texture, laid flat"><img src="../images/entropy/05-alien/alienprogress/texture.webp" width="848" height="560" loading="lazy" decoding="async" alt="The Geist’s texture laid flat: dark, grungy skin shifting into maroon-magenta, on the body and one tentacle"></a></div>
+            <p class="reel-tile-label">Texture</p>
+          </div>
+          <div class="reel-tile" style="--tar: 1259 / 855">
+            <div class="reel-media"><a href="../images/entropy/05-alien/alienfinal/still.webp" data-zoom data-zoom-group="geist" data-caption="The Geist — final. The glitchy, see-through edges are the dithered shader"><img src="../images/entropy/05-alien/alienfinal/still.webp" width="1259" height="855" loading="lazy" decoding="async" alt="The finished Geist from above: a fleshy body with eight long tentacle legs, its edges dithered and see-through"></a></div>
+            <p class="reel-tile-label">Final</p>
+          </div>
+        </div>
+      </figure>
+
+      <!-- SHADER -->
+      <figure class="reel-block side side-wide" id="b-geist-shader">
+        <div class="reel-media">
+          <video data-loop controls muted loop playsinline preload="none"
+                 width="600" height="304" poster="../images/entropy/05-alien/alienfinal/shader-poster.jpg"
+                 aria-label="The Geist's body up close on a dark background, its edges fading in and out as red emissive slits pulse">
+            <source src="../images/entropy/05-alien/alienfinal/shader.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption class="reel-cap"><b>Shader</b> — the Geist’s material up close. Its edges fade in and out with a scrolling noise mask, and alpha clip dithering turns that into see-through edges while the shader stays opaque. The emissive map pulses over time for the bioluminescent glow.</figcaption>
+      </figure>
+
+      <!-- BUILDING IT -->
+      <figure class="reel-block side side-wide side-grid" id="b-geist-stepper">
+        <div class="reel-pair reel-grid2" style="--ar: 7 / 5">
+          <div class="reel-tile">
+            <div class="reel-media">
+              <video data-loop controls muted loop playsinline preload="none"
+                     width="600" height="382" poster="../images/entropy/05-alien/alienfinal/locomotion-arms-poster.jpg"
+                     aria-label="The Geist moving through the med bay, its legs reaching out and planting on the walls and floor">
+                <source src="../images/entropy/05-alien/alienfinal/locomotion-arms.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="reel-tile-label">IK stepper</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media">
+              <video data-loop controls muted loop playsinline preload="none"
+                     width="600" height="348" poster="../images/entropy/05-alien/alienfinal/headlook-poster.jpg"
+                     aria-label="The Geist’s eye-stem curving like a snake as the head stays locked on its target, its eye glowing">
+                <source src="../images/entropy/05-alien/alienfinal/headlook.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="reel-tile-label">Eye-stem IK</p>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>IK stepper &amp; eye-stem</b> — each tendril has its own stepper script that tracks its position against possible step points and the Geist’s core, and steps as the body adjusts. The eye-stem is a custom IK that moves the head like a snake. When it locks onto a target, the neck keeps curving and shifting with it, so it’s never perfectly straight. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/entropy/systems/geist-code-step.webp" data-zoom data-zoom-group="geist-code" data-caption="Tendril stepper — a tendril steps once its planted point falls too far behind or nears the edge of its reach cone, then picks a new spot inside the cone, nudged toward the way the body is moving, and raycasts onto the nearest surface"><img src="../images/entropy/systems/geist-code-step-thumb.webp" width="202" height="84" loading="lazy" decoding="async" alt="C# code: the ShouldStep and PickStepTarget functions from TendrilIKStepper"></a><a href="../images/entropy/systems/geist-code-look.webp" data-zoom data-zoom-group="geist-code" data-caption="Eye-stem target — the target counts as seen inside a vision cone and range, and the neck’s IK target bends sideways toward it, with a small deadzone so the bend doesn’t flip when the target is straight ahead"><img src="../images/entropy/systems/geist-code-look-thumb.webp" width="194" height="84" loading="lazy" decoding="async" alt="C# code: the CheckVisibility and SetIKTargetPosition functions from GeistLookAt"></a></span></figcaption>
+      </figure>
+
+      <figure class="reel-block side side-wide side-grid" id="b-geist-softbody">
+        <div class="reel-pair reel-grid2" style="--ar: 7 / 5">
+          <div class="reel-tile">
+            <div class="reel-media">
+              <video data-loop controls muted loop playsinline preload="none"
+                     width="600" height="490" poster="../images/entropy/05-alien/alienfinal/jiggle-1-poster.jpg"
+                     aria-label="The Geist’s body seen from above, wobbling and settling as it is moved around">
+                <source src="../images/entropy/05-alien/alienfinal/jiggle-1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="reel-tile-label">Moving</p>
+          </div>
+          <div class="reel-tile">
+            <div class="reel-media">
+              <video data-loop controls muted loop playsinline preload="none"
+                     width="600" height="386" poster="../images/entropy/05-alien/alienfinal/jiggle-2-poster.jpg"
+                     aria-label="The Geist’s body wobbling as it is rotated from its side to face-on">
+                <source src="../images/entropy/05-alien/alienfinal/jiggle-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="reel-tile-label">Rotating</p>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>Soft-body physics</b> — the Geist’s core is gelatinous, so it uses soft-body bones from an open-source Unity package. The bones get simple physics as the root of the body moves. A layer of ambient motion keeps the torso wobbling, so it never feels static when the AI holds still. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/entropy/systems/geist-code-ambient.webp" data-zoom data-zoom-group="geist-code" data-caption="Ambient motion — the torso eases toward random tilts inside a small cone while the cone’s direction slowly drifts, so the body keeps shifting even when the AI holds still"><img src="../images/entropy/systems/geist-code-ambient-thumb.webp" width="188" height="84" loading="lazy" decoding="async" alt="C# code: the eased tilt transition and PickNewTiltTarget function from GeistAmbientMotion"></a></span></figcaption>
+      </figure>
+
+      <!-- ALL TOGETHER -->
+      <figure class="reel-block reel-feature" id="b-geist-all">
+        <div class="reel-tile reel-feature-main" style="--ar: 600 / 448">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="448" poster="../images/entropy/05-alien/alienfinal/locomotion-poster.jpg"
+                   aria-label="The Geist moving through the med bay, its tentacle legs reaching out to the walls">
+              <source src="../images/entropy/05-alien/alienfinal/locomotion.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">All together</p>
+        </div>
+        <div class="reel-tile reel-feature-side" style="--ar: 600 / 352">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="352" poster="../images/entropy/05-alien/alienfinal/stepper-poster.jpg"
+                   aria-label="The Geist traversing a round hall, its legs stepping from wall to wall">
+              <source src="../images/entropy/05-alien/alienfinal/stepper.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Hall traversal</p>
+        </div>
+        <figcaption class="reel-cap"><b>All together</b> — stepping, eye-stem IK, soft-body physics and the dithered shader running at once as the Geist moves through the ship and traverses a hall.</figcaption>
+      </figure>
+    </section>
+
+    <h2 class="reel-group" id="production">Production</h2>
+    <p class="reel-group-intro">I co-owned the timeline with the other leads, scoped the game to an MVP and cut luxury features. We broke the work into milestones and tracked it on a Gantt timeline and a Trello board. As design lead, I managed four artists, and most of their tasks started with a design brief I wrote.</p>
+
+    <h3 class="reel-subgroup" id="production-tracking">Planning &amp; tracking</h3>
+
+    <!-- PRODUCTION CARDS -->
+    <figure class="reel-block" id="b-tracking">
+      <div class="reel-docs reel-docs--cards reel-docs--mix">
+        <a class="reel-doc reel-doc--third reel-doc--lead" href="../images/entropy/production/timeline-whiteboard.webp" data-zoom data-zoom-group="production" data-caption="Scoping the timeline — each discipline's phases on sticky notes, mapped to eight milestones from Aug 25 to Dec 15">
+          <span class="reel-doc-media"><img style="object-position: center 75%" src="../images/entropy/production/timeline-whiteboard.webp" width="2000" height="2029" loading="lazy" decoding="async" alt="Whiteboard from a scoping session: sticky notes in columns for level design, player controller, the alien, art, audio and UI/UX, over a timeline from Aug 25 to Dec 15 with eight milestones"></span>
+          <span class="reel-doc-label">Scoping <span class="reel-doc-meta">Whiteboard</span></span>
+          <span class="reel-doc-note">The timeline started here, with each discipline’s phases mapped to milestones.</span>
+        </a>
+        <a class="reel-doc reel-doc--wide" href="../images/entropy/production/gantt.webp" data-zoom data-zoom-group="production" data-caption="Milestone Gantt — owners, dates, estimated vs actual effort, priority and status">
+          <span class="reel-doc-media"><img src="../images/entropy/production/gantt.webp" width="1468" height="784" loading="lazy" decoding="async" alt="The art team’s milestone Gantt: tasks with owners, dates, estimated and actual effort, and status"></span>
+          <span class="reel-doc-label">Gantt timeline <span class="reel-doc-meta">Milestones 1–3</span></span>
+          <span class="reel-doc-note">Every art task with its owner, estimated vs actual effort, priority and status. Co-ran with the other leads.</span>
+        </a>
+        <a class="reel-doc" href="../images/entropy/production/asset-list.webp" data-zoom data-zoom-group="production" data-caption="Asset list — every current asset, plus the assets still needed, for each area and system">
+          <span class="reel-doc-media"><img style="object-position: left top" src="../images/entropy/production/asset-list.webp" width="1520" height="857" loading="lazy" decoding="async" alt="The 3D art asset list: current and still-needed assets for each area and system, such as the modular hall kit and level one rooms, with who is assigned"></span>
+          <span class="reel-doc-label">Asset list <span class="reel-doc-meta">3D art</span></span>
+          <span class="reel-doc-note">Every current asset, plus the assets still needed, for each area and system.</span>
+        </a>
+        <a class="reel-doc" href="../images/entropy/production/trello.webp" data-zoom data-zoom-group="production" data-caption="Team Trello board — milestone lists with labels, dates and checklists">
+          <span class="reel-doc-media"><img src="../images/entropy/production/trello.webp" width="1697" height="887" loading="lazy" decoding="async" alt="The team Trello board: milestone lists of cards with discipline labels, dates and checklists"></span>
+          <span class="reel-doc-label">Trello board <span class="reel-doc-meta">Milestones</span></span>
+          <span class="reel-doc-note">Milestone lists with discipline labels and checklists. Co-ran with the other leads.</span>
+        </a>
+        <a class="reel-doc" href="../images/entropy/production/journal-log.webp" data-zoom data-zoom-group="production" data-caption="Journal log — what changed and why, logged on the Trello card before moving it to approval">
+          <span class="reel-doc-media"><img src="../images/entropy/production/journal-log.webp" width="1076" height="765" loading="lazy" decoding="async" alt="A Trello card for the level 1 lighting overhaul: a comment logging the server room lighting and terminal changes, the card moved to Needs Approval, then approved"></span>
+          <span class="reel-doc-label">Journal log <span class="reel-doc-meta">Trello card</span></span>
+          <span class="reel-doc-note">We logged what changed and why on the card before asking for approval.</span>
+        </a>
+        <a class="reel-doc" href="../images/entropy/production/art-review.webp" data-zoom data-zoom-group="production" data-caption="Art review — style-fit revision notes on a teammate’s server terminal prop">
+          <span class="reel-doc-media"><img src="../images/entropy/production/art-review.webp" width="1080" height="760" loading="lazy" decoding="async" alt="A Trello card for the server terminal prop with revision notes on color, silhouette and design language"></span>
+          <span class="reel-doc-label">Art review <span class="reel-doc-meta">Trello card</span></span>
+          <span class="reel-doc-note">Style-fit revision notes on a teammate’s server terminal prop.</span>
+        </a>
+      </div>
+    </figure>
+
+    <h3 class="reel-subgroup" id="docs">Documentation</h3>
+    <p class="reel-group-intro">A small sample of the many docs behind the project.</p>
+
+    <!-- DOCUMENTATION -->
+    <div class="reel-split reel-split--readers" style="--split: repeat(3, minmax(0, 1fr))">
+      <figure class="reel-block" id="b-gdd">
+        <div class="reel-reader">
+          <div class="reel-reader-bar">
+            <span class="reel-reader-title">Game design doc</span>
+            <span class="reel-reader-count">5 pages</span>
+            <a class="reel-reader-btn" href="../images/entropy/production/game-design-doc.pdf" target="_blank" rel="noopener">PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <div class="reel-reader-view">
+            <div class="reel-reader-pages" tabindex="0" role="region" aria-label="Game design doc, 5 pages">
+              <img src="../images/entropy/production/gdd-1.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Game design doc, page 1: title, team, project description and the three pillars">
+              <img src="../images/entropy/production/gdd-2.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Game design doc, page 2: the three pillars in detail and the core gameplay loop">
+              <img src="../images/entropy/production/gdd-3.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Game design doc, page 3: the rest of the loop, the feature list and the zero-G controller">
+              <img src="../images/entropy/production/gdd-4.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Game design doc, page 4: the Geist, Alan the AI, the wrist monitor and environment dangers">
+              <img src="../images/entropy/production/gdd-5.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Game design doc, page 5: malfunctioning doors, the technology needs and the time needed">
+            </div>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>Game design doc</b> The team’s living design doc for our pillars and game systems. I co-wrote most of it with another lead when we refreshed our documentation.</figcaption>
+      </figure>
+
+      <figure class="reel-block" id="b-ui-doc">
+        <div class="reel-reader">
+          <div class="reel-reader-bar">
+            <span class="reel-reader-title">UI design doc</span>
+            <span class="reel-reader-count">24 pages</span>
+          </div>
+          <div class="reel-reader-view">
+            <div class="reel-reader-pages" tabindex="0" role="region" aria-label="UI design doc, 24 pages">
+              <img src="../images/entropy/production/ui-doc-02.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 1: the goal, five design pillars and the mood board">
+              <img src="../images/entropy/production/ui-doc-03.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 2: fonts and the color palette">
+              <img src="../images/entropy/production/ui-doc-05.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 3: dialogue mockups">
+              <img src="../images/entropy/production/ui-doc-06.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 4: dialogue mockups">
+              <img src="../images/entropy/production/ui-doc-07.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 5: dialogue mockups">
+              <img src="../images/entropy/production/ui-doc-09.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 6: tutorial prompt mockups">
+              <img src="../images/entropy/production/ui-doc-10.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 7: tutorial prompt mockups">
+              <img src="../images/entropy/production/ui-doc-12.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 8: notification mockups">
+              <img src="../images/entropy/production/ui-doc-13.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 9: notification mockups">
+              <img src="../images/entropy/production/ui-doc-14.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 10: notification mockups">
+              <img src="../images/entropy/production/ui-doc-16.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 11: pause menu mockups">
+              <img src="../images/entropy/production/ui-doc-17.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 12: pause menu mockups">
+              <img src="../images/entropy/production/ui-doc-18.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 13: pause menu mockups">
+              <img src="../images/entropy/production/ui-doc-19.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 14: pause menu mockups">
+              <img src="../images/entropy/production/ui-doc-20.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 15: pause menu mockups">
+              <img src="../images/entropy/production/ui-doc-22.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 16: world-space interaction prompt mockups">
+              <img src="../images/entropy/production/ui-doc-23.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 17: world-space interaction prompt mockups">
+              <img src="../images/entropy/production/ui-doc-24.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 18: world-space interaction prompt mockups">
+              <img src="../images/entropy/production/ui-doc-25.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 19: world-space interaction prompt mockups">
+              <img src="../images/entropy/production/ui-doc-27.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 20: kick prompt mockups">
+              <img src="../images/entropy/production/ui-doc-28.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 21: kick prompt mockups">
+              <img src="../images/entropy/production/ui-doc-30.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 22: terminal screen mockups">
+              <img src="../images/entropy/production/ui-doc-31.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 23: terminal screen mockups">
+              <img src="../images/entropy/production/ui-doc-32.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="UI design doc, page 24: terminal screen mockups">
+            </div>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>UI design doc</b> Design pillars for the UI overhaul, then mockup options for each element, for team review.</figcaption>
+      </figure>
+
+      <figure class="reel-block" id="b-briefs">
+        <div class="reel-reader">
+          <div class="reel-reader-bar">
+            <span class="reel-reader-title">Design briefs</span>
+            <span class="reel-reader-count">6 pages</span>
+          </div>
+          <div class="reel-reader-view">
+            <div class="reel-reader-pages" tabindex="0" role="region" aria-label="Design briefs, 6 pages">
+              <img src="../images/entropy/production/brief-terminal-2.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Server terminal brief: the goal, a top-down shot of where it goes, and its bounding box against a player-scale figure">
+              <img src="../images/entropy/production/brief-terminal-3.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Server terminal brief: one texture atlas plus a separate screen material for in-engine UI, the palette, white emissives for tinting">
+              <img src="../images/entropy/production/brief-terminal-6.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Server terminal brief: the 2000-tri budget, size limits, key elements and the design language to follow">
+              <img src="../images/entropy/production/brief-storage-2.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Storage props brief: replacing the yellow placeholder cubes in the dorms, with a scale check and a 500-tri budget">
+              <img src="../images/entropy/production/brief-storage-3.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Storage props brief: shared material rules">
+              <img src="../images/entropy/production/brief-storage-5.webp" width="1102" height="1426" loading="lazy" decoding="async" alt="Storage props brief: the aluminum crate spec, its size, references and design language">
+            </div>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>Design briefs</b> — assignment briefs I wrote, usually one per task and often covering several assets. Each lays out the goal, placement, budget, scale and materials, so direction was easy to find. The server terminal brief sets a 2,000-tri budget, one texture atlas plus a separate screen material for in-engine UI, and white emissives for tinting, and the storage props get 500 tris.</figcaption>
+      </figure>
+    </div>
+
+    <!-- POSTMORTEM -->
+    <h2 class="reel-group" id="postmortem">Postmortem</h2>
+    <p class="reel-group-intro">State of Entropy is still in development, aiming for a demo release in 2027. Over the course of the project, we’ve had a multitude of things to look back on. These are the main takeaways from our postmortems, from the summer 2025 prototype through spring 2026.</p>
+
+    <div class="reel-pm">
+      <article class="reel-pm-card">
+        <header class="reel-pm-head">
+          <h3 class="reel-pm-phase">What worked</h3>
+        </header>
+        <ul class="reel-pm-list">
+          <li>We went from a chaotic workflow to milestones, sprints, clear roles and productive meetings.</li>
+          <li>We committed to a full zero-gravity experience to set us apart from traditional horror thrillers.</li>
+          <li>As design lead, I kept tasks realistic, checked in weekly and gave quick feedback. That got the art pipeline running smoothly, with aesthetic updates every week.</li>
+          <li>Regular playtesting helped us adapt the design to how players actually played, from the controls to how the level guides you.</li>
+          <li>We hit our core goals of a fleshed-out level one built entirely from scratch and a working in-game Geist.</li>
+        </ul>
+      </article>
+
+      <article class="reel-pm-card">
+        <header class="reel-pm-head">
+          <h3 class="reel-pm-phase">What didn’t</h3>
+        </header>
+        <ul class="reel-pm-list">
+          <li>Scope creep was a consistent issue, especially as the team grew. The game we first pitched ran 30–45 minutes, so we cut it to a 5–10 minute target, and a “simple” tutorial level still took four milestones instead of one.</li>
+          <li>Early on, roles weren’t defined. It was a wild west of whoever wanted to work on whatever, so important items ended up falling by the wayside.</li>
+          <li>We sometimes gave direction before we knew what we actually wanted, which led to generic results we had to redo.</li>
+          <li>Some cross-team decisions dragged on, so our pivots came later than they should have.</li>
+        </ul>
+      </article>
+
+      <article class="reel-pm-card reel-pm-card--next">
+        <header class="reel-pm-head">
+          <h3 class="reel-pm-phase">What I’d do differently</h3>
+        </header>
+        <ul class="reel-pm-list">
+          <li>Do proper preproduction at the start of a project, covering a style guide, a merge process, communication and task assignment.</li>
+          <li>Cut scope early, on both the big picture and individual tasks.</li>
+          <li>Don’t put the cart before the horse. Know what something needs to be in your game before giving direction on it.</li>
+          <li>Treat leadership as dynamic when you’re balancing multiple roles. Some weeks it’s 20% of the job and some weeks it needs 80%, so you can’t lock it at one amount.</li>
+          <li>Clarify decisions in detail, and ask questions early instead of late.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="reel-end">
+      <div class="reel-contact">
+        <span class="reel-contact-k">Contact</span>
+        <a href="mailto:noahkasper9@gmail.com">noahkasper9@gmail.com</a>
+        <a href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <a class="dl-btn dl-secondary" href="../index.html#work"><span aria-hidden="true">← </span>All Work</a>
+      <a class="reel-next" href="page-changeling.html">
+        <span class="reel-next-k">Next project</span>
+        <span class="reel-next-v">CHANGELING VR&nbsp;<span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-l">© 2026 Noah Kasper</span>
+  <span class="foot-r" aria-hidden="true">SYS:OK</span>
+</footer>
+</body>
+</html>

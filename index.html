@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah Kasper — Game Designer | Gameplay Programming | Technical Art</title>
+  <meta name="description" content="Noah Kasper, game designer with a background in gameplay programming and technical art. State of Entropy, Changeling VR, a Direct3D 12 renderer and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Noah Kasper — Game Designer | Gameplay Programming | Technical Art">
+  <meta property="og:description" content="Noah Kasper, game designer with a background in gameplay programming and technical art. State of Entropy, Changeling VR, a Direct3D 12 renderer and more.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og-card.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=87">
+</head>
+<body id="top">
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a class="logo" href="#top">NOAH<span>.</span>K</a>
+    <div class="nav-r">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="nav-avail" href="mailto:noahkasper9@gmail.com">Open to work<span class="sr-only"> — email Noah</span></a>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- INTRO -->
+
+    <div class="intro">
+      <div class="intro-content">
+        <div class="intro-tag">Game Designer — Gameplay Programming — Technical Art</div>
+        <h1 class="intro-name">NOAH<br><span class="lit">KASPER</span></h1>
+        <p class="intro-desc">
+          <strong>Designs and builds gameplay systems, tools, and levels</strong>,
+          bridging art, design, and engineering.
+          Graduated from RIT in May 2026 with a B.S. in Game Design &amp; Development.
+          Based in Syracuse, NY, and looking for game design, technical art and
+          gameplay programming roles, ideally remote but open to relocating.
+        </p>
+      </div>
+
+      <!-- 3D hero, rendered by js/hero-viewer.js -->
+      <div class="intro-3d">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">Scroll to work</div>
+    </div>
+
+
+    <!-- STICKY FILTER BAR: data-filter keys match card data-tags; JS fills in counts -->
+
+    <div class="filter-bar" id="filterBar" role="group" aria-label="Filter projects">
+      <button class="flt all-btn active" type="button" data-filter="all" aria-pressed="true">
+        All <span class="flt-count" id="fc-all">07</span>
+      </button>
+
+      <div class="filter-dropdown" data-group="skills">
+        <button class="filter-dropdown-trigger" type="button" aria-expanded="false" aria-controls="filterPanelSkills">Skills <span class="dd-caret" aria-hidden="true">&#9662;</span></button>
+        <div class="filter-dropdown-panel" id="filterPanelSkills" role="group" aria-label="Skills">
+          <button class="flt" type="button" data-filter="project-management" aria-pressed="false">
+            Project Mgmt <span class="flt-count" id="fc-project-management">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="programming" aria-pressed="false">
+            Programming <span class="flt-count" id="fc-programming">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="gameplay-programming" aria-pressed="false">
+            Gameplay Programming <span class="flt-count" id="fc-gameplay-programming">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="game-design" aria-pressed="false">
+            Game Design <span class="flt-count" id="fc-game-design">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="level-design" aria-pressed="false">
+            Level Design <span class="flt-count" id="fc-level-design">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="pre-production" aria-pressed="false">
+            Pre-Production <span class="flt-count" id="fc-pre-production">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="team-leadership" aria-pressed="false">
+            Team Leadership <span class="flt-count" id="fc-team-leadership">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="tech-art" aria-pressed="false">
+            Tech Art <span class="flt-count" id="fc-tech-art">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="3d-art" aria-pressed="false">
+            3D Art <span class="flt-count" id="fc-3d-art">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="2d-art" aria-pressed="false">
+            2D Art <span class="flt-count" id="fc-2d-art">00</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-dropdown" data-group="tools">
+        <button class="filter-dropdown-trigger" type="button" aria-expanded="false" aria-controls="filterPanelTools">Tools <span class="dd-caret" aria-hidden="true">&#9662;</span></button>
+        <div class="filter-dropdown-panel" id="filterPanelTools" role="group" aria-label="Tools">
+          <button class="flt" type="button" data-filter="unity" aria-pressed="false">
+            Unity <span class="flt-count" id="fc-unity">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="unreal-engine" aria-pressed="false">
+            Unreal Engine <span class="flt-count" id="fc-unreal-engine">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="three-js" aria-pressed="false">
+            Three.js <span class="flt-count" id="fc-three-js">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="direct3d-12" aria-pressed="false">
+            Direct3D 12 <span class="flt-count" id="fc-direct3d-12">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="tabletop-simulator" aria-pressed="false">
+            Tabletop Simulator <span class="flt-count" id="fc-tabletop-simulator">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="monogame" aria-pressed="false">
+            MonoGame <span class="flt-count" id="fc-monogame">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="roblox" aria-pressed="false">
+            Roblox <span class="flt-count" id="fc-roblox">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="godot" aria-pressed="false">
+            Godot <span class="flt-count" id="fc-godot">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="blender" aria-pressed="false">
+            Blender <span class="flt-count" id="fc-blender">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="maya" aria-pressed="false">
+            Maya <span class="flt-count" id="fc-maya">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="substance-painter" aria-pressed="false">
+            Substance Painter <span class="flt-count" id="fc-substance-painter">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="photoshop" aria-pressed="false">
+            Photoshop <span class="flt-count" id="fc-photoshop">00</span>
+          </button>
+          <button class="flt" type="button" data-filter="illustrator" aria-pressed="false">
+            Illustrator <span class="flt-count" id="fc-illustrator">00</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-chips" id="filterChips"></div>
+    </div>
+
+
+    <!-- WORK -->
+
+    <div class="work" id="work">
+      <div class="work-header" id="archiveHeader">
+        <h2 class="work-title">Project Archive</h2>
+        <span class="work-count" id="workCount" aria-live="polite">07 projects</span>
+      </div>
+      <div class="rule-glow"></div>
+
+      <!-- STATE OF ENTROPY (featured) -->
+      <a class="project-hero" href="projects/page-entropy.html" aria-labelledby="t-entropy" data-tags="game-design level-design gameplay-programming tech-art 3d-art team-leadership project-management pre-production 2d-art unity blender substance-painter photoshop">
+
+        <div class="slideshow hud-frame">
+          <span class="feat-badge">Featured</span>
+
+          <div class="slide active">
+            <img src="images/entropy/hero-logo.webp" width="1920" height="1080" decoding="async" alt="">
+          </div>
+          <div class="slide">
+            <img src="images/entropy/gameplay/server.webp" width="1727" height="869" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="slide">
+            <img src="images/entropy/gameplay/cryo.webp" width="1105" height="612" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="slide">
+            <img src="images/entropy/04-environments/08-escape-pods/escape.webp" width="1796" height="886" loading="lazy" decoding="async" alt="">
+          </div>
+
+          <div class="slide-counter" id="counter" aria-hidden="true">01 / 04</div>
+          <div class="slide-dots" aria-hidden="true">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+        <div class="proj-meta-hero">
+          <div class="proj-num" aria-hidden="true">001</div>
+          <div>
+            <div class="proj-cat">Game Design — Tech Art — Level Design</div>
+            <h3 id="t-entropy" class="proj-name">STATE OF ENTROPY</h3>
+            <p class="proj-desc">Zero-gravity horror FPS made through the Magic Makers co-op at MAGIC Spell Studios. As Design Lead &amp; Technical Artist on a 13-person team, I managed a small subteam, made shaders, programmed gameplay systems and took level one from graybox to final models.</p>
+            <div class="proj-tag-row">
+              <span class="proj-tag">Unity</span>
+              <span class="proj-tag">Design Lead</span>
+              <span class="proj-tag">Tech Art</span>
+              <span class="proj-tag">Level Design</span>
+              <span class="proj-tag">Zero-G</span>
+            </div>
+          </div>
+          <div class="proj-right">
+            <span class="proj-year">2025 – Present</span>
+            <div class="proj-arrow" aria-hidden="true">→</div>
+          </div>
+        </div>
+
+      </a>
+
+      <!-- ARCHIVE GRID -->
+
+      <div class="archive-grid" id="archiveGrid">
+
+        <!-- CHANGELING VR -->
+        <a class="project-small" href="projects/page-changeling.html" aria-labelledby="t-changeling" data-tags="tech-art 3d-art unreal-engine blender maya substance-painter">
+          <div class="thumb-small pt-character hud-frame">
+            <img src="images/changeling/card.webp" width="1139" height="641" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">002</div>
+            <div>
+              <div class="sm-cat">Tech Art — 3D Art</div>
+              <h3 id="t-changeling" class="sm-name">CHANGELING VR</h3>
+              <p class="sm-desc">Faculty-led VR mystery game released on Steam. Over a summer co-op on its 10-person tech art team, I modeled and textured various props and created materials for Unreal Engine 4.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">Unreal Engine 4</span>
+                <span class="sm-tag">VR</span>
+                <span class="sm-tag">Co-op</span>
+                <span class="sm-tag">Steam</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2024</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- SEVEN HILLS -->
+        <a class="project-small" href="projects/page-sevenhills.html" aria-labelledby="t-sevenhills" data-tags="game-design programming 3d-art tabletop-simulator">
+          <div class="thumb-small pt-character hud-frame">
+            <img src="images/sevenhills/card.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">003</div>
+            <div>
+              <div class="sm-cat">Game Design</div>
+              <h3 id="t-sevenhills" class="sm-name">SEVEN HILLS</h3>
+              <p class="sm-desc">Hidden-traitor board game about Roman gods defending Rome, made by a team of five for a game design class. I helped design its mechanics and scripted its Tabletop Simulator version.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">Board Game</span>
+                <span class="sm-tag">Tabletop Simulator</span>
+                <span class="sm-tag">Lua Scripting</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2024</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- TECH ART STUDIES -->
+        <a class="project-small" href="projects/page-studies.html" aria-labelledby="t-studies" data-tags="programming tech-art unity three-js">
+          <div class="thumb-small pt-shader hud-frame">
+            <img src="images/studies/card.webp" width="711" height="400" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">004</div>
+            <div>
+              <div class="sm-cat">Tech Art — Shaders</div>
+              <h3 id="t-studies" class="sm-name">TECH ART STUDIES</h3>
+              <p class="sm-desc">Shader and generative art studies I built from scratch, including a hand-written flesh shader, a live raymarcher and generative SVG art.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">HLSL</span>
+                <span class="sm-tag">GLSL</span>
+                <span class="sm-tag">Raymarching</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2026</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- LEVEL DESIGN -->
+        <a class="project-small" href="projects/page-leveldesign.html" aria-labelledby="t-leveldesign" data-tags="level-design game-design unreal-engine">
+          <div class="thumb-small pt-pipeline hud-frame">
+            <img src="images/leveldesign/card.webp" width="925" height="520" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">005</div>
+            <div>
+              <div class="sm-cat">Level Design</div>
+              <h3 id="t-leveldesign" class="sm-name">LEVEL DESIGN</h3>
+              <p class="sm-desc">Three solo levels for a level design class, built in Unreal Engine 5, Portal 2 and BattleBlock Theater and revised through playtesting.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">Unreal Engine 5</span>
+                <span class="sm-tag">Solo</span>
+                <span class="sm-tag">Playtesting</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2025</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- DIRECT3D 12 RENDERER -->
+        <a class="project-small" href="projects/page-d3d12.html" aria-labelledby="t-d3d12" data-tags="programming tech-art direct3d-12">
+          <div class="thumb-small pt-pipeline hud-frame">
+            <img src="images/d3d12/card.webp" width="600" height="334" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">006</div>
+            <div>
+              <div class="sm-cat">Graphics Programming</div>
+              <h3 id="t-d3d12" class="sm-name">DIRECT3D 12 RENDERER</h3>
+              <p class="sm-desc">Coursework renderer in C++, built in Direct3D 11 and ported to Direct3D 12, with PBR shading, particles and a DXR path tracer.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">C++</span>
+                <span class="sm-tag">Direct3D 12</span>
+                <span class="sm-tag">HLSL</span>
+                <span class="sm-tag">DXR</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2026</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- BEAT THE DUNGEON -->
+        <a class="project-small" href="projects/page-beatthedungeon.html" aria-labelledby="t-btd" data-tags="programming gameplay-programming monogame">
+          <div class="thumb-small pt-shader hud-frame">
+            <img src="images/beatthedungeon/card.webp?v=5" width="1280" height="720" loading="lazy" decoding="async" alt="">
+          </div>
+          <div class="sm-meta">
+            <div class="sm-num" aria-hidden="true">007</div>
+            <div>
+              <div class="sm-cat">Gameplay Programming</div>
+              <h3 id="t-btd" class="sm-name">BEAT THE DUNGEON</h3>
+              <p class="sm-desc">2D dungeon shooter built in MonoGame by a team of four. I programmed its weapons, loot and HUD.</p>
+              <div class="sm-tags">
+                <span class="sm-tag">C#</span>
+                <span class="sm-tag">MonoGame</span>
+                <span class="sm-tag">Team of 4</span>
+              </div>
+            </div>
+            <div class="sm-right">
+              <span class="sm-year">2023</span>
+              <div class="sm-arrow" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+
+        <div class="no-results" id="noResults" role="status">No matching projects <button class="no-results-reset" type="button">Show all projects</button></div>
+
+      </div><!-- /.archive-grid -->
+    </div><!-- /.work -->
+
+    <div class="rule-glow"></div>
+
+
+    <!-- ABOUT -->
+
+    <div class="about" id="about">
+      <h2 class="about-head">ABOUT<br><span>ME.</span></h2>
+      <div class="contact-list">
+        <a class="c-row" href="mailto:noahkasper9@gmail.com">
+          <span class="c-label">Email</span>
+          <span class="c-val">noahkasper9@gmail.com</span>
+        </a>
+        <a class="c-row" href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">linkedin.com/in/noahkasper</span>
+          <span class="sr-only"> (opens in a new tab)</span>
+        </a>
+        <a class="c-row" href="Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">
+          <span class="c-label">Resume</span>
+          <span class="c-val">PDF — 1 page</span>
+          <span class="sr-only"> (opens in a new tab)</span>
+        </a>
+      </div>
+      <p class="about-body">
+        I’ve always felt a connection to games. Ever since I was a kid, I’ve
+        been making them, from hand-drawn board games to simple paper cutouts.
+        I grew up surrounded by emerging technology. A Mac, a
+        PlayStation and a Wii introduced me to video games at an early age, and
+        eventually to Roblox, where the appeal of making my own games for free
+        pulled me in.
+      </p>
+      <p class="about-body">
+        Were my first games good? Not really, but that didn’t matter. They were
+        cool to me, I loved showing them off, and I took it on myself to make
+        the next one better. That drive to improve my craft pushed me from
+        scripting into 3D modeling, texturing and finishing whole projects.
+        Eventually I started picking up commission work on Roblox, at first
+        for virtual currency or just for fun, and later for real money. Each
+        job taught me more about working for others and to a standard.
+      </p>
+      <p class="about-body">
+        That led me to RIT, where I put myself in a more structured
+        environment to grow my skills and workflow. Over those four years, I
+        made great connections and worked on games and projects that, even
+        when they weren’t perfect, left me with lessons I bring to every
+        project.
+      </p>
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <span class="foot-l">© 2026 Noah Kasper</span>
+    <span class="foot-r" aria-hidden="true">SYS:OK</span>
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+  (function () {
+    'use strict';
+
+    const pad = n => String(n).padStart(2, '0');
+
+    // Keyboard focus only (a mouse click also focuses on Windows).
+    // Browsers without :focus-visible throw, so fall back to plain focus.
+    function hasKeyboardFocus(el) {
+      try {
+        return el.matches(':focus-visible') || !!el.querySelector(':focus-visible');
+      } catch (e) {
+        return el.contains(document.activeElement);
+      }
+    }
+
+
+    // ---- Slideshow ----
+    // Paused for reduced motion (WCAG 2.2.2), hover/focus, hidden tab or off screen.
+
+    const heroCard = document.querySelector('.project-hero');
+    const slides   = document.querySelectorAll('.slide');
+    const dots     = document.querySelectorAll('.dot');
+    const counter  = document.getElementById('counter');
+    const total    = slides.length;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let cur = 0;
+    let slideTimer = null;
+    let heroHovered = false;
+    let heroFocused = false;
+    let heroInView = !('IntersectionObserver' in window);
+
+    function goTo(n) {
+      slides[cur].classList.remove('active');
+      if (dots[cur]) dots[cur].classList.remove('active');
+
+      cur = (n + total) % total;
+
+      slides[cur].classList.add('active');
+      if (dots[cur]) dots[cur].classList.add('active');
+      if (counter) counter.textContent = pad(cur + 1) + ' / ' + pad(total);
+    }
+
+    function syncSlideshow() {
+      const run = total > 1 && !reduceMotion.matches && heroInView &&
+        !heroHovered && !heroFocused && !document.hidden;
+
+      if (run && !slideTimer) {
+        slideTimer = setInterval(() => goTo(cur + 1), 3800);
+      } else if (!run && slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    }
+
+    if (heroCard) {
+      heroCard.addEventListener('mouseenter', () => { heroHovered = true;  syncSlideshow(); });
+      heroCard.addEventListener('mouseleave', () => { heroHovered = false; syncSlideshow(); });
+      heroCard.addEventListener('focusin',    () => { heroFocused = hasKeyboardFocus(heroCard); syncSlideshow(); });
+      heroCard.addEventListener('focusout',   () => { heroFocused = false; syncSlideshow(); });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          heroInView = entries[0].isIntersecting;
+          syncSlideshow();
+        }, { threshold: 0.5 }).observe(heroCard.querySelector('.slideshow') || heroCard);
+      }
+    }
+    document.addEventListener('visibilitychange', syncSlideshow);
+    // Safari < 14 only has the older addListener API
+    if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', syncSlideshow);
+    else if (reduceMotion.addListener) reduceMotion.addListener(syncSlideshow);
+
+    syncSlideshow();
+
+
+    // ---- Sticky filter bar ----
+
+    const NAV_HEIGHT    = 52;
+    const workSection   = document.getElementById('work');
+    const filterBar     = document.getElementById('filterBar');
+    const archiveHeader = document.getElementById('archiveHeader');
+    const dropdowns     = filterBar.querySelectorAll('.filter-dropdown');
+
+    function setDropdownOpen(dd, open) {
+      dd.classList.toggle('open', open);
+      dd.querySelector('.filter-dropdown-trigger').setAttribute('aria-expanded', String(open));
+    }
+
+    function closeDropdowns() {
+      dropdowns.forEach(dd => setDropdownOpen(dd, false));
+    }
+
+    // While filtering, the bar stays visible: a short result list can
+    // pull the scroll back above the header.
+    let filtering = false;
+
+    function syncFilterBar() {
+      const header = archiveHeader.getBoundingClientRect();
+      const inWork = workSection.getBoundingClientRect().bottom > NAV_HEIGHT + 164;
+      const pastHeader = header.bottom < NAV_HEIGHT;
+      const show = inWork && (pastHeader || (filtering && header.top < window.innerHeight));
+      filterBar.classList.toggle('visible', show);
+
+      // Close panels when the bar hides, unless keyboard focus is
+      // holding it open via CSS :has(:focus-visible).
+      if (!show && !hasKeyboardFocus(filterBar)) closeDropdowns();
+    }
+
+    window.addEventListener('scroll', syncFilterBar, { passive: true });
+    syncFilterBar();
+
+
+    // ---- Filter logic ----
+    // A card must match every active tag (AND).
+
+    const cards       = document.querySelectorAll('.project-hero, .project-small');
+    const archiveGrid = document.getElementById('archiveGrid');
+    const noResults   = document.getElementById('noResults');
+    const workCount   = document.getElementById('workCount');
+    const allBtn      = filterBar.querySelector('.all-btn');
+    const allCount    = document.getElementById('fc-all');
+    const filters     = filterBar.querySelectorAll('.flt[data-filter]:not(.all-btn)');
+    const filterChips = document.getElementById('filterChips');
+    const activeFilters = new Set();
+    // tag -> label text (button text minus the count)
+    const tagLabels = {};
+    // card -> parsed tag list
+    const cardTags = new Map();
+
+    cards.forEach(c => {
+      cardTags.set(c, (c.dataset.tags || '').split(/\s+/).filter(Boolean));
+    });
+
+    if (allCount) allCount.textContent = pad(cards.length);
+
+    filters.forEach(f => {
+      const tag = f.dataset.filter;
+      tagLabels[tag] = f.childNodes[0].textContent.trim();
+
+      let count = 0;
+      cards.forEach(c => {
+        if (cardTags.get(c).includes(tag)) count++;
+      });
+
+      const countEl = document.getElementById('fc-' + tag);
+      if (countEl) countEl.textContent = pad(count);
+
+      f.hidden = count === 0;
+    });
+
+    // Hide a dropdown if all its keys are unused
+    dropdowns.forEach(dd => {
+      dd.hidden = !dd.querySelector('.flt[data-filter]:not([hidden])');
+    });
+
+    function updateButtonStates() {
+      filterBar.querySelectorAll('.flt[data-filter]').forEach(btn => {
+        const tag = btn.dataset.filter;
+        const isActive = tag === 'all' ? activeFilters.size === 0 : activeFilters.has(tag);
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+
+      // Highlight the trigger even while its panel is collapsed
+      dropdowns.forEach(dd => {
+        dd.classList.toggle('has-active', !!dd.querySelector('.flt.active'));
+      });
+    }
+
+    function renderChips() {
+      filterChips.textContent = '';
+      activeFilters.forEach(tag => {
+        const label = tagLabels[tag] || tag;
+        const chip = document.createElement('span');
+        chip.className = 'filter-chip';
+        chip.textContent = label;
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.setAttribute('aria-label', 'Remove ' + label + ' filter');
+        removeBtn.textContent = '×';
+        removeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          removeFilter(tag);
+        });
+
+        chip.appendChild(removeBtn);
+        filterChips.appendChild(chip);
+      });
+    }
+
+    // The clicked chip is removed, so move focus to a neighbor or "All".
+    function removeFilter(tag) {
+      const index = [...activeFilters].indexOf(tag);
+      activeFilters.delete(tag);
+      refresh();
+
+      const chipButtons = filterChips.querySelectorAll('.filter-chip button');
+      const neighbour = chipButtons[Math.min(index, chipButtons.length - 1)];
+      (neighbour || allBtn).focus();
+    }
+
+    function applyFilters() {
+      const active = [...activeFilters];
+      let visible = 0;
+      let smallVisible = 0;
+      let lastSmall = null;
+
+      cards.forEach(card => {
+        const tags = cardTags.get(card);
+        const show = active.every(f => tags.includes(f));
+        card.classList.toggle('hidden', !show);
+        card.classList.remove('is-wide');
+        if (!show) return;
+        visible++;
+        if (card.classList.contains('project-small')) { smallVisible++; lastSmall = card; }
+      });
+
+      // Odd grid count: the last card spans both columns.
+      if (lastSmall && smallVisible % 2 !== 0) lastSmall.classList.add('is-wide');
+
+      // Hide the grid when only the featured card matches; keep it
+      // when nothing matches, since it holds the no-results message.
+      archiveGrid.style.display = visible > 0 && smallVisible === 0 ? 'none' : '';
+
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+
+      // Only update on change so screen readers don't repeat the count.
+      const countText = pad(visible) + ' project' + (visible !== 1 ? 's' : '');
+      if (workCount.textContent !== countText) workCount.textContent = countText;
+    }
+
+    function refresh() {
+      updateButtonStates();
+      renderChips();
+      applyFilters();
+      filtering = activeFilters.size > 0;
+      // a shorter page can leave the view below the results; bring them back
+      const top = archiveHeader.getBoundingClientRect().top;
+      if (top < NAV_HEIGHT) window.scrollTo({ top: window.scrollY + top - NAV_HEIGHT - 52, behavior: 'instant' });
+      // no matches: close the panel so the reset button isn't hidden under it
+      if (noResults.style.display === 'block') closeDropdowns();
+      syncFilterBar();
+    }
+
+    // Initial layout and count
+    applyFilters();
+
+    noResults.querySelector('.no-results-reset').addEventListener('click', () => {
+      activeFilters.clear();
+      refresh();
+      allBtn.focus();
+    });
+
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.flt[data-filter]');
+      if (!btn) return;
+
+      const tag = btn.dataset.filter;
+      if (tag === 'all') {
+        activeFilters.clear();
+      } else if (activeFilters.has(tag)) {
+        activeFilters.delete(tag);
+      } else {
+        activeFilters.add(tag);
+      }
+      refresh();
+    });
+
+
+    // ---- Dropdowns ----
+    // One open at a time; picking a tag leaves the panel open.
+
+    dropdowns.forEach(dd => {
+      const trigger = dd.querySelector('.filter-dropdown-trigger');
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willOpen = !dd.classList.contains('open');
+        closeDropdowns();
+        setDropdownOpen(dd, willOpen);
+      });
+
+      // Null relatedTarget (blank-page click) is handled by the document listener
+      dd.addEventListener('focusout', (e) => {
+        if (e.relatedTarget && !dd.contains(e.relatedTarget)) setDropdownOpen(dd, false);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.filter-dropdown')) closeDropdowns();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      dropdowns.forEach(dd => {
+        if (!dd.classList.contains('open')) return;
+        const hadFocus = dd.contains(document.activeElement);
+        setDropdownOpen(dd, false);
+        if (hadFocus) dd.querySelector('.filter-dropdown-trigger').focus();
+      });
+    });
+
+  })();
+  </script>
+
+  <!-- Hero 3D viewer, deferred so the page text renders first -->
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/fflate@0.6.9/umd/index.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script defer src="js/hero-viewer.js?v=52"></script>
+
+</body>
+</html>

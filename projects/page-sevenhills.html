@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEVEN HILLS -->
+  <title>Seven Hills — Noah Kasper</title>
+  <meta name="description" content="Seven Hills — Noah Kasper. A hidden-traitor board game about Roman gods defending Rome, made by a team of five, with game design and Tabletop Simulator scripting.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Seven Hills — Noah Kasper">
+  <meta property="og:description" content="Seven Hills — Noah Kasper. A hidden-traitor board game about Roman gods defending Rome, made by a team of five, with game design and Tabletop Simulator scripting.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og/sevenhills.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/projects/page-sevenhills.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/projects/page-sevenhills.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=87">
+  <script src="../js/reel.js?v=12" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NOAH<span>.</span>K</a>
+  <div class="nav-r">
+    <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="nav-back" href="../index.html#work">All Work</a>
+  </div>
+</nav>
+
+<main class="reel reel-nostage">
+
+  <header class="reel-head">
+    <div class="reel-titlebar">
+      <div>
+        <div class="hero-eyebrow">Hidden-Traitor Board Game — Class Project</div>
+        <h1 class="reel-title">SEVEN HILLS</h1>
+      </div>
+    </div>
+
+    <dl class="reel-facts">
+      <div class="reel-fact"><dt>Role</dt><dd>Game design · TTS scripting (Lua)</dd></div>
+      <div class="reel-fact"><dt>Team</dt><dd>5 designers</dd></div>
+      <div class="reel-fact"><dt>Timeline</dt><dd>Feb – May 2024</dd></div>
+      <div class="reel-fact"><dt>Format</dt><dd>Board game · 4–7 players</dd></div>
+    </dl>
+
+    <!-- The game in brief, from the Rules sheet -->
+    <p class="reel-about"><strong>Seven Hills</strong> is a hidden-traitor board game for 4 to 7 players. Everyone plays a Roman god trying to save the seven hills of Rome from monsters and disasters, but one or two players are secretly traitors who win if four hills fall. Threats are played face down, so players can only hint at what they saw, and the table votes on who the traitor is after rounds 3 and 6.</p>
+
+    <div class="reel-brief">
+      <p class="reel-pitch">We made it as a team of five for a game design class. The original pitch was Ada Miller’s, and the whole project was very collective. I worked on game design and documentation, helping cement the mechanics after the pitch. I helped brainstorm health for the hills, the Pokémon-inspired weaknesses, disaster tokens, and hero strength that wears down with each fight. I also modeled and scripted the hill temples in our Tabletop Simulator build, where most of our playtesting happened.</p>
+      <ul class="reel-points">
+        <li><a href="#b-tts"><b>Tabletop Simulator</b> — temples I modeled and scripted to track each hill’s health</a></li>
+        <li><a href="#b-elements"><b>Elemental counters</b> — which threats beat which, plus a +2 matchup bonus</a></li>
+        <li><a href="#b-heroes"><b>Hero cards</b> — powerful face-up cards that fight the monsters on a hill</a></li>
+        <li><a href="#b-tokens"><b>Disaster tokens</b> — new threats that spawn on empty hills</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="reel-body">
+
+    <figure class="reel-block key" id="b-tts">
+      <figcaption class="reel-cap"><span class="entry-tag">Scripting</span> <b>Tabletop Simulator build</b> — the physical game tracks each hill’s health with a 20-sided die, and in our Tabletop Simulator build I modeled and scripted Roman temples to replace the dice. In the original pitch, hills fell after a set amount of time, and giving them health instead was one of the changes I helped brainstorm. The board and card art are by other team members.</figcaption>
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 7 / 4; --cols: minmax(0, 1.704fr) minmax(0, 1.751fr)">
+        <div class="reel-tile" style="--tar: 1600 / 939">
+          <div class="reel-media"><a href="../images/sevenhills/tts-board.webp" data-zoom data-zoom-group="tts" data-caption="Tabletop Simulator — the board before setup, every temple at 20 health"><img src="../images/sevenhills/tts-board.webp" width="1600" height="939" loading="lazy" decoding="async" alt="The Seven Hills board in Tabletop Simulator: a map of Rome with a Roman temple on each of the seven hills, each showing 20"></a></div>
+          <p class="reel-tile-label">Before setup</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1732 / 989">
+          <div class="reel-media"><a href="../images/sevenhills/tts-midgame.webp" data-zoom data-zoom-group="tts" data-caption="Tabletop Simulator — mid-game, with threats face down on the hills and a hand along the bottom"><img src="../images/sevenhills/tts-midgame.webp" width="1732" height="989" loading="lazy" decoding="async" alt="The board mid-game: face-down threat cards on several hills, temples showing lower health, and a hand of cards along the bottom"></a></div>
+          <p class="reel-tile-label">Mid-game</p>
+        </div>
+      </div>
+    </figure>
+
+    <!-- TEMPLE & HERO SCRIPTS -->
+    <figure class="reel-block side side-wide side-grid" id="b-tts-script">
+      <div class="reel-pair reel-grid2" style="--ar: 600 / 440">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="440" poster="../images/sevenhills/threat-counter-poster.jpg"
+                   aria-label="A flood token laid on an earthquake card at a hill, the temple’s threat level updating, then Card Damage lowering its health">
+              <source src="../images/sevenhills/threat-counter.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Threat counter</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="434" poster="../images/sevenhills/card-damage-poster.jpg"
+                   aria-label="Right-clicking a temple and choosing Card Damage twice, its health dropping from 20 to 19 to 18 with one threat on the hill">
+              <source src="../images/sevenhills/card-damage.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Card damage</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="442" poster="../images/sevenhills/adjust-reset-poster.jpg"
+                   aria-label="Using the temple menu to lower and raise its health, then Reset to put it back to 20">
+              <source src="../images/sevenhills/adjust-reset.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Adjust &amp; reset</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="434" poster="../images/sevenhills/hero-strength-poster.jpg"
+                   aria-label="Using the hero card menu to lower and raise Ulysses’ strength">
+              <source src="../images/sevenhills/hero-strength.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Hero strength</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Scripting</span> <b>Temple &amp; hero scripts</b> — each temple counts the cards and tokens on its hill and shows the count as a threat level. Right-clicking gives Card Damage, one health per threat, plus Increase, Decrease and Reset. Card Damage turned the hill damage our postmortem called tedious and easy to forget into one click per hill. Hero cards got Increase, Decrease and Reset too, since a hero’s strength drops with every fight and on a real table you’d have to track how much to subtract from its printed value.</figcaption>
+    </figure>
+
+    <!-- The Rules sheet beside the Elemental Defeats table taken from it -->
+    <div class="reel-split">
+      <figure class="reel-block" id="b-rules">
+        <div class="reel-reader">
+          <div class="reel-reader-bar">
+            <span class="reel-reader-title">Rules sheet</span>
+            <span class="reel-reader-count">14 pages</span>
+          </div>
+          <div class="reel-reader-view">
+            <div class="reel-reader-pages" tabindex="0" role="region" aria-label="Rules sheet, 14 pages">
+                <img src="../images/sevenhills/rules-1.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 1: title page, information and objective">
+                <img src="../images/sevenhills/rules-2.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 2: winning, and setting up the board">
+                <img src="../images/sevenhills/rules-3.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 3: the card types and the hill dice, which are temples in Tabletop Simulator">
+                <img src="../images/sevenhills/rules-4.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 4: god and loyalty cards, and beginning play">
+                <img src="../images/sevenhills/rules-5.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 5: the anatomy of a turn">
+                <img src="../images/sevenhills/rules-6.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 6: resolving cards, monsters against monsters">
+                <img src="../images/sevenhills/rules-7.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 7: monsters and disasters, and heroes">
+                <img src="../images/sevenhills/rules-8.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 8: heroes, and damaging hills">
+                <img src="../images/sevenhills/rules-9.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 9: the Elemental Defeats table, and voting out the traitor">
+                <img src="../images/sevenhills/rules-10.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 10: victory, and the god reference">
+                <img src="../images/sevenhills/rules-11.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 11: the god reference, continued">
+                <img src="../images/sevenhills/rules-12.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 12: the god reference, then hero abilities">
+                <img src="../images/sevenhills/rules-13.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 13: hero abilities, then the monster cards">
+                <img src="../images/sevenhills/rules-14.webp" width="1530" height="1980" loading="lazy" decoding="async" alt="Rules sheet, page 14: the monster and disaster cards">
+            </div>
+          </div>
+        </div>
+        <figcaption class="reel-cap"><b>Rules sheet</b> — the team’s rules for the game, from setup and turn order to how every clash between cards resolves.</figcaption>
+      </figure>
+
+      <figure class="reel-block" id="b-elements">
+      <div class="reel-media"><a href="../images/sevenhills/elemental-defeats.webp?v=2" data-zoom data-zoom-group="mechanics" data-caption="Elemental Defeats — each disaster and the elements it’s weak to"><img src="../images/sevenhills/elemental-defeats.webp?v=2" width="846" height="749" loading="lazy" decoding="async" alt="A table of the ten disasters and their weaknesses, such as Drought weak to Flood/Tsunami and Riots weak to Plague, Famine and Earthquake"></a></div>
+        <figcaption class="reel-cap"><span class="entry-tag">Game Design</span> <b>Elemental counters</b> — every disaster and most monsters have an element, and each disaster is weak to between one and three others. A flood played on a fire puts it out and both leave play, and a monster that counters a disaster ends it. In late April we added type matchups to monster fights, so a monster that counters its opponent gets +2 strength when attacking or defending, and the bonus stacks. I helped brainstorm the weaknesses, which were inspired by Pokémon types.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="reel-block side side-wide" id="b-heroes">
+      <div class="reel-media"><a href="../images/sevenhills/hero-cards.webp" data-zoom data-zoom-group="mechanics" data-caption="Hero cards — Hercules, Ulysses, Achilles and Aeneas, each with its own ability"><img src="../images/sevenhills/hero-cards.webp" width="1269" height="440" loading="lazy" decoding="async" alt="Four hero cards, Hercules, Ulysses, Achilles and Aeneas, each with a strength number and an ability"></a></div>
+      <figcaption class="reel-cap"><span class="entry-tag">Game Design</span> <b>Hero cards</b> — heroes are very powerful cards that are played face up and fight the monsters on their hill, and unlike threat cards they don’t damage the hill each turn. I helped come up with hero strength, which wears down with each fight and also works as the hero’s health. Playtests kept finding heroes too strong, especially once they could move between hills, so instead of every player getting one at the start, we shuffled them into the draw pile and limited each hand to one. The card art is by other team members.</figcaption>
+    </figure>
+
+    <figure class="reel-block side side-wide" id="b-tokens">
+      <div class="reel-media"><a href="../images/sevenhills/disaster-cards.webp" data-zoom data-zoom-group="mechanics" data-caption="Disaster cards — the ten disasters; tokens use the same elements and stay face up"><img src="../images/sevenhills/disaster-cards.webp" width="1143" height="653" loading="lazy" decoding="async" alt="Ten disaster cards: Riots, Tornado, Plague, Drought, Famine, Bloodwater, Wildfires, Earthquake, Flood and Volcanic Eruption"></a></div>
+      <figcaption class="reel-cap"><span class="entry-tag">Game Design</span> <b>Disaster tokens</b> — a monster sent against a stronger one doesn’t die. It joins the stronger monster on the hill, and if it has an element, it creates a disaster token of that element on an empty hill. Tokens work like disaster cards but stay face up. We added them after a mid-April playtest to give the traitor more ways to pressure the hills, and they were one of the ideas I helped brainstorm. The disaster card art is by other team members.</figcaption>
+    </figure>
+
+    <h2 class="reel-group" id="playtesting">Playtesting</h2>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>All three testers who filled out our first form had skimmed the rules, and only one was sure how to set up the board. We added a reference table of the gods to the rules sheet, and the Elemental Defeats table gave players the weaknesses at a glance.</li>
+      <li>Early games were stacked against the traitor, even by the loyal players’ account. We started more cards face down and hid every disaster at the start, and later tests found the balance better with most hill cards hidden.</li>
+      <li>In one test nobody used their god powers. We made god cards usable at any point in the game, and when we tested that in late April, they felt more useful.</li>
+    </ul>
+
+    <h2 class="reel-group" id="takeaways">Takeaways</h2>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>Most of our testing happened in Tabletop Simulator, and we didn’t playtest enough overall. Players told us the small card text got in the way and that the game might play better as a physical board game, so next time I’d test a physical copy earlier and more often.</li>
+      <li>A few misunderstandings about how parts of the game were supposed to work weren’t caught right away, and they led to major design changes later. Asking more questions and meeting more often early on would have caught them sooner.</li>
+      <li>We counted type matchups as one of the game’s strengths, but they weren’t intuitive and they added math to monster fights. Next time I’d make the matchup sheet clearer.</li>
+    </ul>
+
+    <div class="reel-end">
+      <div class="reel-contact">
+        <span class="reel-contact-k">Contact</span>
+        <a href="mailto:noahkasper9@gmail.com">noahkasper9@gmail.com</a>
+        <a href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <a class="dl-btn dl-secondary" href="../index.html#work"><span aria-hidden="true">← </span>All Work</a>
+      <a class="reel-next" href="page-studies.html">
+        <span class="reel-next-k">Next project</span>
+        <span class="reel-next-v">TECH ART STUDIES&nbsp;<span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-l">© 2026 Noah Kasper</span>
+  <span class="foot-r" aria-hidden="true">SYS:OK</span>
+</footer>
+</body>
+</html>

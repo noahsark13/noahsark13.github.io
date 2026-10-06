@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TECH ART STUDIES -->
+  <title>Tech Art Studies — Noah Kasper</title>
+  <meta name="description" content="Tech Art Studies — Noah Kasper. A live GLSL raymarcher, a hand-written URP flesh shader and generative SVG art, built from scratch for a 2026 class.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tech Art Studies — Noah Kasper">
+  <meta property="og:description" content="Tech Art Studies — Noah Kasper. A live GLSL raymarcher, a hand-written URP flesh shader and generative SVG art, built from scratch for a 2026 class.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og/studies.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/projects/page-studies.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/projects/page-studies.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=87">
+  <script src="../js/reel.js?v=12" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NOAH<span>.</span>K</a>
+  <div class="nav-r">
+    <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="nav-back" href="../index.html#work">All Work</a>
+  </div>
+</nav>
+
+<main class="reel reel-nostage">
+
+  <header class="reel-head">
+    <div class="reel-titlebar">
+      <div>
+        <div class="hero-eyebrow">Shaders &amp; Generative Art — Coursework</div>
+        <h1 class="reel-title">TECH ART STUDIES</h1>
+      </div>
+    </div>
+
+    <dl class="reel-facts">
+      <div class="reel-fact"><dt>Type</dt><dd>Solo studies · coursework</dd></div>
+      <div class="reel-fact"><dt>Timeline</dt><dd>Jan – May 2026</dd></div>
+      <div class="reel-fact"><dt>Stack</dt><dd>GLSL · HLSL · JavaScript</dd></div>
+      <div class="reel-fact"><dt>Pieces</dt><dd>Raymarch · Venom · Generative</dd></div>
+    </dl>
+
+    <div class="reel-brief">
+      <p class="reel-pitch">Small studies from one class, each a system I built from scratch. The raymarched planet runs live on this page.</p>
+      <ul class="reel-points">
+        <li><a href="#raymarch"><b>Raymarch</b> — an SDF planet drawn as a dot grid in eight retro palettes</a></li>
+        <li><a href="#venom"><b>Venom shader</b> — a hand-written URP shader for procedural flesh</a></li>
+        <li><a href="#generative"><b>Generative art</b> — a Truchet tiling, a recreation of Molnár’s <i>Interruptions</i> and a take on Nees’s <i>Schotter</i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="reel-body">
+
+    <h2 class="reel-group" id="raymarch">Raymarch</h2>
+
+    <!-- RAYMARCH: click-to-load live embed -->
+    <figure class="reel-block side side-wide" id="b-raymarch">
+      <div class="reel-media reel-embed reel-live" style="--ar: 16 / 9">
+        <img src="../images/raymarch/poster.jpg" width="1280" height="724" alt="" decoding="async" loading="lazy">
+        <button class="reel-live-gate" type="button"><span class="reel-chip">Live demo — click to interact</span></button>
+        <iframe data-src="embeds/raymarch-sdf.html?v=4" title="Live raymarched SDF planet — drag or arrow keys to orbit, Ctrl+scroll to zoom"
+                onload="if (this.getAttribute('src')) this.classList.add('is-loaded')"></iframe>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Shader</span> <b>Raymarched planet</b> — a GLSL raymarcher with no scene meshes. The planet and its two rings are built from signed distance functions, then drawn as a grid of brightness-scaled dots in eight retro palettes. Click the demo to orbit it and switch the palette and dot size. It later became the basis for this site’s homepage 3D viewer. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/raymarch/raymarch-code-scene.webp" data-zoom data-zoom-group="raymarch-code" data-caption="Scene — the planet is a sphere and each ring is a flat band, both written as distance functions, then tilted and combined with min()"><img src="../images/raymarch/raymarch-code-scene-thumb.webp" width="184" height="84" loading="lazy" decoding="async" alt="GLSL code: the flat ring distance function and the scene that combines the planet and both rings"></a><a href="../images/raymarch/raymarch-code-march.webp" data-zoom data-zoom-group="raymarch-code" data-caption="Raymarcher — each ray steps forward by the distance to the nearest surface, a hit is lit with a key, fill and rim light, and a miss falls through to a sparse star field"><img src="../images/raymarch/raymarch-code-march-thumb.webp" width="218" height="84" loading="lazy" decoding="async" alt="GLSL code: the marchRay function, with its stepping loop, lighting and star field"></a><a href="../images/raymarch/raymarch-code-dots.webp" data-zoom data-zoom-group="raymarch-code" data-caption="Dot grid — the screen is split into cells with one ray each, and every dot’s radius follows the brightness its ray found"><img src="../images/raymarch/raymarch-code-dots-thumb.webp" width="208" height="84" loading="lazy" decoding="async" alt="GLSL code: the main function that turns each cell into a dot sized by brightness"></a></span></figcaption>
+    </figure>
+
+    <!-- RAYMARCH FEATURES -->
+    <figure class="reel-block reel-block--cont" id="b-raymarch-features">
+      <div class="reel-trio reel-trio--6 reel-grid" style="--ar: 1280 / 724">
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/palette-amber.jpg" data-zoom data-zoom-group="raymarch" data-caption="Amber palette"><img src="../images/raymarch/palette-amber-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="Ringed planet in dot-matrix, Amber palette"></a></div>
+          <p class="reel-tile-label">Amber</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/palette-gameboy.jpg" data-zoom data-zoom-group="raymarch" data-caption="Game Boy palette"><img src="../images/raymarch/palette-gameboy-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="The same frame in the Game Boy palette"></a></div>
+          <p class="reel-tile-label">Game Boy</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/palette-pc98.jpg" data-zoom data-zoom-group="raymarch" data-caption="PC-98 palette"><img src="../images/raymarch/palette-pc98-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="The same frame in the PC-98 palette"></a></div>
+          <p class="reel-tile-label">PC-98</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/palette-c64.jpg" data-zoom data-zoom-group="raymarch" data-caption="C64 palette"><img src="../images/raymarch/palette-c64-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="The same frame in the C64 palette"></a></div>
+          <p class="reel-tile-label">C64</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/pixel-4.jpg" data-zoom data-zoom-group="raymarch" data-caption="Dot size — 4px cells"><img src="../images/raymarch/pixel-4-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="The planet drawn with 4px dot cells"></a></div>
+          <p class="reel-tile-label">4px dots</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/raymarch/pixel-14.jpg" data-zoom data-zoom-group="raymarch" data-caption="Dot size — 14px cells"><img src="../images/raymarch/pixel-14-thumb.webp" width="297" height="168" loading="lazy" decoding="async" alt="The same frame drawn with 14px dot cells"></a></div>
+          <p class="reel-tile-label">14px dots</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><b>Palettes &amp; dot size</b> — four of the eight palettes, and the same frame drawn with 4px and 14px cells.</figcaption>
+    </figure>
+
+
+    <h2 class="reel-group" id="venom">Venom Shader</h2>
+
+    <!-- VENOM SHADER -->
+    <figure class="reel-block side side-wide side-grid" id="b-venom">
+      <div class="reel-pair reel-grid2" style="--ar: 3 / 2">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="400" poster="../images/studies/venom-dark-poster.jpg?v=2"
+                   aria-label="A glossy black, wrinkled organic surface on a slowly turning sphere">
+              <source src="../images/studies/venom-dark.mp4?v=2" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Venom look</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="400" poster="../images/studies/venom-flesh-poster.jpg?v=2"
+                   aria-label="The same shader with red flesh settings, dark creases running between the folds as the sphere turns">
+              <source src="../images/studies/venom-flesh.mp4?v=2" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Flesh look</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Shader</span> <b>Venom shader</b> — a hand-written HLSL shader for Unity’s URP that uses no textures, inspired by Marvel’s Venom symbiote. Domain-warped noise, after Inigo Quilez’s <a href="https://iquilezles.org/articles/warp/" target="_blank" rel="noopener">domain warping article<span class="sr-only"> (opens in a new tab)</span></a>, and Voronoi cells build the flesh, with a vein layer and an emissive pulse on top. The normals come from the shader’s own height field, and it’s lit through URP’s PBR lighting. Both looks are the same shader with different settings. <span class="reel-under"><span class="reel-under-k">Settings &amp; code</span><a href="../images/studies/venom-settings.webp" data-zoom data-zoom-group="venom-hood" data-caption="Material settings — the flesh colors and scale, veins, pulse, breathing, wetness and distortion are all set here"><img src="../images/studies/venom-settings-thumb.webp" width="71" height="84" loading="lazy" decoding="async" alt="Unity material inspector listing the shader settings: flesh colors, vein color, glow, flesh scale and detail, vein controls, pulse, breath, wetness and distortion"></a><a href="../images/studies/venom-code-flesh.webp" data-zoom data-zoom-group="venom-hood" data-caption="Flesh — domain warping (after Inigo Quilez), then Voronoi cells, fBm noise and wrinkles combined"><img src="../images/studies/venom-code-flesh-thumb.webp" width="154" height="84" loading="lazy" decoding="async" alt="HLSL code: the domainWarp and generateFleshComponents functions"></a><a href="../images/studies/venom-code-veins.webp?v=2" data-zoom data-zoom-group="venom-hood" data-caption="Veins — each vein is a wavy projection along its own direction, and the network follows the flesh warp"><img src="../images/studies/venom-code-veins-thumb.webp?v=2" width="168" height="84" loading="lazy" decoding="async" alt="HLSL code: the singleVein function and the start of generateVeinNetwork"></a><a href="../images/studies/venom-code-normals.webp?v=2" data-zoom data-zoom-group="venom-hood" data-caption="Normals &amp; lighting — normals from finite differences of the flesh height, then URP’s PBR lighting"><img src="../images/studies/venom-code-normals-thumb.webp?v=2" width="222" height="84" loading="lazy" decoding="async" alt="HLSL code: calculateFleshNormal and the end of the fragment shader calling UniversalFragmentPBR"></a></span></figcaption>
+    </figure>
+
+    <h2 class="reel-group" id="generative">Generative Art</h2>
+    <p class="reel-group-intro">SVG drawings generated in JavaScript. Each one comes out different every time it runs.</p>
+
+    <!-- GENERATIVE -->
+    <div class="reel-cards">
+      <figure class="reel-block" id="truchet" style="--a: 1">
+        <div class="reel-media reel-sheet"><a href="../images/studies/truchet.webp?v=2" data-zoom data-zoom-group="generative" data-caption="Truchet tiles — one generated A4 sheet"><img src="../images/studies/truchet-card.webp" width="700" height="990" loading="lazy" decoding="async" alt="An A4 sheet of concentric black arcs and straight bands that wind into each other, so the lines look woven"></a></div>
+        <figcaption class="reel-cap"><span class="entry-tag">Generative</span> <b>Truchet tiles</b> — a procedural recreation of a hand-drawn pattern I saw on Reddit, output as an A4 SVG for a pen plotter. Simplex noise decides where the straight tiles cluster, and each curved tile clips its second set of arcs where they cross the first, so the lines look like they weave under each other. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/studies/truchet-code-grid.webp" data-zoom data-zoom-group="generative-code" data-caption="Noise grid — simplex noise picks a curved or straight tile for each cell, then each tile gets a random rotation"><img src="../images/studies/truchet-code-grid-thumb.webp" width="204" height="84" loading="lazy" decoding="async" alt="JavaScript code: makeTruchetGrid choosing curved or straight tiles from simplex noise"></a><a href="../images/studies/truchet-code-weave.webp" data-zoom data-zoom-group="generative-code" data-caption="Weave — the second set of arcs is drawn only between the angles where it crosses the first, so it looks like it passes underneath"><img src="../images/studies/truchet-code-weave-thumb.webp" width="152" height="84" loading="lazy" decoding="async" alt="JavaScript code: the second arc loop that clips each arc between its two crossing angles"></a></span></figcaption>
+      </figure>
+
+      <figure class="reel-block" id="interruptions" style="--a: 1">
+        <div class="reel-media reel-sheet"><a href="../images/studies/interruptions.webp" data-zoom data-zoom-group="generative" data-caption="Interruptions — after Vera Molnár’s Interruptions (1968–69)"><img src="../images/studies/interruptions.webp" width="900" height="900" loading="lazy" decoding="async" alt="A white square filled with short black lines at random angles, with several rounded gaps where the lines thin out and stop"></a></div>
+        <figcaption class="reel-cap"><span class="entry-tag">Generative</span> <b>Interruptions</b> — a recreation of Vera Molnár’s <i>Interruptions</i> (1968–69). Invisible rectangles mark the gaps, and within 30px of one, each line’s chance of being drawn is its distance to the nearest rectangle divided by 30, squared. The lines thin out toward each gap instead of stopping at a hard edge, and overlapping rectangles merge into rounded, irregular holes. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/studies/interruptions-code.webp" data-zoom data-zoom-group="generative-code" data-caption="Survival chance — inside a gap a line is removed, beyond 30px it is always drawn, and in between its chance is the distance divided by 30, squared"><img src="../images/studies/interruptions-code-thumb.webp" width="222" height="84" loading="lazy" decoding="async" alt="JavaScript code: survivalChance, the distance-to-gap probability for each line"></a></span></figcaption>
+      </figure>
+
+      <figure class="reel-block" id="monuments" style="--a: 1">
+        <div class="reel-media reel-sheet"><a href="../images/studies/monuments.webp" data-zoom data-zoom-group="generative" data-caption="Crumbling Monuments — after Georg Nees’s Schotter (1968)"><img src="../images/studies/monuments.webp" width="847" height="938" loading="lazy" decoding="async" alt="Columns of nested squares forming an uneven skyline that loosens, fades and scatters into single tilted squares toward the bottom"></a></div>
+        <figcaption class="reel-cap"><span class="entry-tag">Generative</span> <b>Crumbling Monuments</b> — a take on Georg Nees’s <i>Schotter</i> (1968). Noise sets a skyline of columns, and toward the bottom the squares lose their inner rings, fade and scatter, with each ring wobbling on its own. <span class="reel-under"><span class="reel-under-k">Code</span><a href="../images/studies/monuments-code-skyline.webp" data-zoom data-zoom-group="generative-code" data-caption="Skyline — two layers of noise offset each column, and shakiness grows with the cube of the row"><img src="../images/studies/monuments-code-skyline-thumb.webp" width="174" height="84" loading="lazy" decoding="async" alt="JavaScript code: makeGridOfSquares building noise-offset columns of squares"></a><a href="../images/studies/monuments-code-rings.webp" data-zoom data-zoom-group="generative-code" data-caption="Crumbling rings — lower squares keep fewer rings, fade toward gray and shift, with each ring rotated by its own noise"><img src="../images/studies/monuments-code-rings-thumb.webp" width="228" height="84" loading="lazy" decoding="async" alt="JavaScript code: makeRingSquare drawing the nested, shaking rings of one square"></a></span></figcaption>
+      </figure>
+    </div>
+
+    <div class="reel-end">
+      <div class="reel-contact">
+        <span class="reel-contact-k">Contact</span>
+        <a href="mailto:noahkasper9@gmail.com">noahkasper9@gmail.com</a>
+        <a href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <a class="dl-btn dl-secondary" href="../index.html#work"><span aria-hidden="true">← </span>All Work</a>
+      <a class="reel-next" href="page-leveldesign.html">
+        <span class="reel-next-k">Next project</span>
+        <span class="reel-next-v">LEVEL DESIGN&nbsp;<span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-l">© 2026 Noah Kasper</span>
+  <span class="foot-r" aria-hidden="true">SYS:OK</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BEAT THE DUNGEON -->
+  <title>Beat the Dungeon — Noah Kasper</title>
+  <meta name="description" content="Beat the Dungeon — Noah Kasper. A 2D pixel-art dungeon shooter made in MonoGame by a team of four, with gameplay programming by Noah.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Beat the Dungeon — Noah Kasper">
+  <meta property="og:description" content="Beat the Dungeon — Noah Kasper. A 2D pixel-art dungeon shooter made in MonoGame by a team of four, with gameplay programming by Noah.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og/beatthedungeon.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/projects/page-beatthedungeon.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/projects/page-beatthedungeon.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=87">
+  <script src="../js/reel.js?v=12" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NOAH<span>.</span>K</a>
+  <div class="nav-r">
+    <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="nav-back" href="../index.html#work">All Work</a>
+  </div>
+</nav>
+
+<main class="reel reel-nostage">
+
+  <header class="reel-head">
+    <div class="reel-titlebar">
+      <div>
+        <div class="hero-eyebrow">2D Dungeon Shooter — First College Project</div>
+        <h1 class="reel-title">BEAT THE DUNGEON</h1>
+      </div>
+    </div>
+
+    <dl class="reel-facts">
+      <div class="reel-fact"><dt>Role</dt><dd>Gameplay programming</dd></div>
+      <div class="reel-fact"><dt>Team</dt><dd>4 developers</dd></div>
+      <div class="reel-fact"><dt>Timeline</dt><dd>Spring 2023</dd></div>
+      <div class="reel-fact"><dt>Framework</dt><dd>MonoGame · C#</dd></div>
+    </dl>
+
+    <p class="reel-about"><strong>Beat the Dungeon</strong> is a 2D pixel-art dungeon shooter. You move with the keyboard, aim and shoot with the mouse, and fight through rooms of enemies that chase you or shoot at you, opening treasure chests for new weapons and artifacts along the way. The goal is to find loot strong enough to beat the boss and escape the dungeon.</p>
+
+    <div class="reel-brief">
+      <p class="reel-pitch">Beat the Dungeon was the first project I worked on in college, and the first game for all four of us on the team. Each of us took a different part of the game. For the bare-bones prototype, I set up the player’s basic functionality and wrote a modular projectile class meant to be used by every weapon. For the finished game, I built the chests and their loot, six weapons, artifacts and potions, and the in-game HUD. Other team members built the base class structure, the camera, collisions and menus, the enemies and the boss, and the dungeon editor and dungeon manager. The knight and dungeon tiles come from free itch.io asset packs by <a href="https://0x72.itch.io/dungeontileset-ii" target="_blank" rel="noopener">0x72<span class="sr-only"> (opens in a new tab)</span></a> and <a href="https://pixel-poem.itch.io/dungeon-assetpuck" target="_blank" rel="noopener">pixel-poem<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+      <ul class="reel-points">
+        <li><a href="#b-projectile"><b>Projectile class</b> — one class every weapon builds on, aimed with the mouse</a></li>
+        <li><a href="#b-projectile"><b>Player</b> — movement and a sprite that flips to face the mouse</a></li>
+        <li><a href="#b-chests"><b>Chests &amp; loot</b> — an enum sets each chest’s rarity and loot table</a></li>
+        <li><a href="#b-weapons"><b>Weapons</b> — six weapons built on the projectile class</a></li>
+        <li><a href="#b-artifacts"><b>Artifacts &amp; potions</b> — active abilities on a cooldown, plus health and max-health potions</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="reel-body">
+
+    <!-- PLAYER & PROJECTILES -->
+    <figure class="reel-block side side-wide side-grid" id="b-projectile">
+      <div class="reel-pair reel-grid2" style="--ar: 5 / 3">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="1200" height="720" poster="../images/beatthedungeon/gameplay-poster.jpg"
+                   aria-label="The knight moving through dungeon rooms and shooting fireballs at orcs, flipping to face the mouse, with the health bar and item slots along the bottom">
+              <source src="../images/beatthedungeon/gameplay.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Gameplay</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/beatthedungeon/projectile-ranged.webp" data-zoom data-zoom-group="btd" data-caption="Projectile class — the red squares are the hitboxes, here a 20 by 20 hitbox at speed 8"><img src="../images/beatthedungeon/projectile-ranged.webp" width="632" height="422" loading="lazy" decoding="async" alt="Three fireballs flying away from the knight, each with a small red square hitbox"></a></div>
+          <p class="reel-tile-label">Hitboxes</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Programming</span> <b>Player &amp; projectiles</b> — for the prototype, I set up the player with basic movement and a sprite that flips to face the mouse. I also wrote one projectile class that every weapon builds on by changing a few values in the constructor. Projectiles fire toward the mouse and are deleted when they hit a wall, and the red squares show their hitboxes.</figcaption>
+    </figure>
+
+    <!-- CHESTS -->
+    <figure class="reel-block side side-wide side-grid" id="b-chests">
+      <div class="reel-pair reel-grid2" style="--ar: 5 / 3">
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/beatthedungeon/chest-rarities.webp" data-zoom data-zoom-group="btd" data-caption="Chests — common, rare and legendary, each a recolored sprite with its own loot table"><img src="../images/beatthedungeon/chest-rarities.webp" style="object-position: 20% 50%" width="1064" height="530" loading="lazy" decoding="async" alt="Three chests around the knight in a dungeon room, a dark legendary chest and two orange chests with different trim"></a></div>
+          <p class="reel-tile-label">Common · rare · legendary</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="358" poster="../images/beatthedungeon/chest-open-poster.jpg"
+                   aria-label="The knight opens a chest with E and an artifact drops out, then shows up in the item slot with its tooltip">
+              <source src="../images/beatthedungeon/chest-open.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Opening a chest</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Programming</span> <b>Chests</b> — each chest is common, rare or legendary, with the rarity set by an enum. The rarity picks the chest’s sprite, which I recolored from an asset pack, and its own loot table of weapons. Every chest also has a 1 in 3 chance to drop an artifact.</figcaption>
+    </figure>
+
+    <!-- WEAPONS -->
+    <figure class="reel-block key" id="b-weapons">
+      <figcaption class="reel-cap"><span class="entry-tag">Programming</span> <b>Weapons</b> — every weapon is built on the projectile class above, with its own stats and behavior. Common chests drop the Fireball, Light Piercer and Divine Fist, and rare chests drop Tempest Winds and El Bombino. Legendary chests are a gamble, with a 9 in 10 chance of a Fireball with terrible stats and a 1 in 10 chance of RapidFireDestructionDeath, which is basically overpowered.</figcaption>
+      <div class="reel-trio reel-grid" style="--ar: 600 / 358">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="356" poster="../images/beatthedungeon/weapon-fireball-poster.jpg"
+                   aria-label="Shooting fireballs at an orc enemy">
+              <source src="../images/beatthedungeon/weapon-fireball.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Fireball · common</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="358" poster="../images/beatthedungeon/weapon-lightpiercer-poster.jpg"
+                   aria-label="Firing the Light Piercer, a fast golden shot">
+              <source src="../images/beatthedungeon/weapon-lightpiercer.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Light Piercer · common</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="360" poster="../images/beatthedungeon/weapon-divinefist-poster.jpg"
+                   aria-label="Firing the Divine Fist, with its damage and cooldown tooltip">
+              <source src="../images/beatthedungeon/weapon-divinefist.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Divine Fist · common</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="360" poster="../images/beatthedungeon/weapon-tempestwinds-poster.jpg"
+                   aria-label="Tempest Winds firing a ring of wind blades outward from the knight">
+              <source src="../images/beatthedungeon/weapon-tempestwinds.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Tempest Winds · rare</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="358" poster="../images/beatthedungeon/weapon-elbombino-poster.jpg"
+                   aria-label="El Bombino launching a large blue blast">
+              <source src="../images/beatthedungeon/weapon-elbombino.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">El Bombino · rare</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="358" poster="../images/beatthedungeon/weapon-rapidfire-poster.jpg"
+                   aria-label="RapidFireDestructionDeath firing a long, dense stream of projectiles">
+              <source src="../images/beatthedungeon/weapon-rapidfire.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">RapidFire<wbr>Destruction<wbr>Death · legendary</p>
+        </div>
+      </div>
+    </figure>
+
+    <!-- ARTIFACTS & POTIONS -->
+    <figure class="reel-block side side-wide side-grid" id="b-artifacts">
+      <div class="reel-pair reel-grid2" style="--ar: 5 / 3">
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="362" poster="../images/beatthedungeon/artifact-steelheart-poster.jpg"
+                   aria-label="Using Steel Heart: the knight turns blue and invincible while orcs attack">
+              <source src="../images/beatthedungeon/artifact-steelheart.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Steel Heart · invincibility</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media">
+            <video data-loop controls muted loop playsinline preload="none"
+                   width="600" height="358" poster="../images/beatthedungeon/artifact-swiftfoot-poster.jpg"
+                   aria-label="Picking up Swift Foot, its tooltip showing Ability Dash and the cooldown">
+              <source src="../images/beatthedungeon/artifact-swiftfoot.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="reel-tile-label">Swift Foot · dash</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/beatthedungeon/potion-red.webp" data-zoom data-zoom-group="btd" data-caption="Red potion — restores 20 health"><img src="../images/beatthedungeon/potion-red.webp" width="489" height="262" loading="lazy" decoding="async" alt="A small red potion on the dungeon floor near the knight"></a></div>
+          <p class="reel-tile-label">Red potion · +20 health</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/beatthedungeon/potion-yellow.webp" data-zoom data-zoom-group="btd" data-caption="Yellow potion — raises max health by 20 without healing"><img src="../images/beatthedungeon/potion-yellow.webp" width="511" height="281" loading="lazy" decoding="async" alt="Two small yellow potions on the dungeon floor near the knight"></a></div>
+          <p class="reel-tile-label">Yellow potion · +20 max health</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Programming</span> <b>Artifacts &amp; potions</b> — artifacts drop from chests and give you an active ability on a cooldown. Steel Heart makes you invincible for a short time on a 20-second cooldown, and Swift Foot gives you a dash. The red potion restores 20 health, and the yellow potion raises your max health by 20 without healing you. I also made the HUD, with the health bar, the weapon and item slots, and hover tooltips that show each item’s stats.</figcaption>
+    </figure>
+
+    <h2 class="reel-group" id="takeaways">Takeaways</h2>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>Features we expected to take minutes took days, so we had to lower our scope. Randomized dungeons, a progression system and endless replayability didn’t make it in, but we got the basic loop of fighting through the dungeon working.</li>
+      <li>We set up one class structure early, and it held up. Because the code stayed consistent, new features were easy to add, and more than one of us could work on a bug, even in code someone else wrote.</li>
+      <li>Most of the time we worked separately and merged near each due date, which led to merge conflicts and late-night bug fixing. Next time I’d set our own deadlines between the official ones and actually hold the weekly session we’d planned for coding together.</li>
+    </ul>
+
+    <div class="reel-end">
+      <div class="reel-contact">
+        <span class="reel-contact-k">Contact</span>
+        <a href="mailto:noahkasper9@gmail.com">noahkasper9@gmail.com</a>
+        <a href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <a class="dl-btn dl-secondary" href="../index.html#work"><span aria-hidden="true">← </span>All Work</a>
+      <a class="reel-next" href="page-entropy.html">
+        <span class="reel-next-k">Next project</span>
+        <span class="reel-next-v">STATE OF ENTROPY&nbsp;<span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-l">© 2026 Noah Kasper</span>
+  <span class="foot-r" aria-hidden="true">SYS:OK</span>
+</footer>
+</body>
+</html>

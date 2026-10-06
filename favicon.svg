@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- NK monogram: site cyan #00E5FF on site void #0A0B0D (style.css :root).
+       Tile uses the site's chamfered-corner cut (see .hero-cta clip-path).
+       Letters are flat-cut polygons in the spirit of Chakra Petch; stems
+       and cap/base lines sit on even units, so they land on whole pixels
+       at 16px. (No double hyphens in this comment: XML forbids them.) -->
+  <path fill="#0A0B0D" d="M5 0H32V27L27 32H0V5Z"/>
+  <path fill="#00E5FF" d="M2 26V6H6L10 16V6H14V26H10L6 16V26Z"/>
+  <path fill="#00E5FF" d="M18 6H22V11L26 6H30L22 16L30 26H26L22 21V26H18Z"/>
+</svg>

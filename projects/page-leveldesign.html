@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- LEVEL DESIGN -->
+  <title>Level Design — Noah Kasper</title>
+  <meta name="description" content="Level Design — Noah Kasper. Three solo levels from a level design class, a shooter level in Unreal Engine 5, a Portal 2 puzzle and a BattleBlock Theater platformer, each revised through playtesting.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Level Design — Noah Kasper">
+  <meta property="og:description" content="Level Design — Noah Kasper. Three solo levels from a level design class, a shooter level in Unreal Engine 5, a Portal 2 puzzle and a BattleBlock Theater platformer, each revised through playtesting.">
+  <meta property="og:image" content="https://noahsark13.github.io/images/og/leveldesign.jpg">
+  <meta property="og:url" content="https://noahsark13.github.io/projects/page-leveldesign.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://noahsark13.github.io/projects/page-leveldesign.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=87">
+  <script src="../js/reel.js?v=12" defer></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NOAH<span>.</span>K</a>
+  <div class="nav-r">
+    <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+    <a class="nav-back" href="../index.html#work">All Work</a>
+  </div>
+</nav>
+
+<main class="reel reel-nostage">
+
+  <header class="reel-head">
+    <div class="reel-titlebar">
+      <div>
+        <div class="hero-eyebrow">Level Design — Class Projects</div>
+        <h1 class="reel-title">LEVEL DESIGN</h1>
+      </div>
+    </div>
+
+    <dl class="reel-facts">
+      <div class="reel-fact"><dt>Role</dt><dd>Level design</dd></div>
+      <div class="reel-fact"><dt>Team</dt><dd>Solo</dd></div>
+      <div class="reel-fact"><dt>Timeline</dt><dd>Feb – Apr 2025</dd></div>
+      <div class="reel-fact"><dt>Tools</dt><dd>UE5 · Portal 2 · BattleBlock</dd></div>
+    </dl>
+
+    <p class="reel-about"><strong>Three levels</strong> from one level design class, each in a different genre and tool. There’s a shooter level in Unreal Engine 5, a laser puzzle in Portal 2’s Puzzle Maker, and a platformer level in BattleBlock Theater’s level editor.</p>
+
+    <div class="reel-brief">
+      <p class="reel-pitch">I designed and built each level on my own. Every one started as a written plan and a layout drawing, then went through a build, playtesting and a revision, with the changes logged in a postmortem.</p>
+      <ul class="reel-points">
+        <li><a href="#fps"><b>FPS level</b> — close quarters and vertical layers, with two paths</a></li>
+        <li><a href="#portal"><b>Portal 2 puzzle</b> — a three-room lesson in lasers and redirection cubes</a></li>
+        <li><a href="#battleblock"><b>BattleBlock level</b> — a platformer that starts with a leap of faith off a cliff</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="reel-body">
+
+    <h2 class="reel-group" id="fps">FPS Level</h2>
+    <p class="reel-group-intro">This single-player shooter level in Unreal Engine 5 is built around close quarters, choke points and vertical layers. Each of its four rooms is layered differently, so you have to stay aware of enemies above and below you. From the first room you can take the stairs up or a tight tunnel underneath.</p>
+
+    <figure class="reel-block key" id="b-playthrough">
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Playthrough</b> — a run through the revised level, taking the stairs path first, then the tunnel, then the final fight.</figcaption>
+      <div class="reel-media reel-embed" style="--ar: 16 / 9">
+        <a class="reel-yt" href="https://www.youtube.com/watch?v=cwtmpnMjCTY" data-yt="cwtmpnMjCTY" aria-label="Play video: FPS Level playthrough">
+          <img src="../images/fpslevel/video-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
+          <span class="reel-chip"><span aria-hidden="true">&#9656; </span>Watch playthrough</span>
+        </a>
+      </div>
+    </figure>
+
+    <figure class="reel-block side side-wide" id="b-layout">
+      <div class="reel-media"><a href="../images/fpslevel/layout.webp" data-zoom data-zoom-group="fps" data-caption="Layout drawing — the plan in top-down and side views, with its legend"><img src="../images/fpslevel/layout.webp" width="1480" height="982" loading="lazy" decoding="async" alt="A top-down layout drawing of four rooms with stairs, ladders, holes, cover, equipment chests, enemies and their patrol paths, beside a legend"></a></div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Layout drawing</b> — the plan I drew before building, in top-down and side views, marking cover, stairs, ladders, chests, holes, enemies and their patrol paths. Every room has a main floor and a higher balcony, and the final room adds a lower layer, so there are enemies both above and below you.</figcaption>
+    </figure>
+
+    <figure class="reel-block" id="b-rooms">
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 16 / 10; --cols: minmax(0, 1.560fr) minmax(0, 1.644fr) minmax(0, 1.743fr)">
+        <div class="reel-tile" style="--tar: 1379 / 884">
+          <div class="reel-media"><a href="../images/fpslevel/room-start.webp" data-zoom data-zoom-group="fps" data-caption="First room — stairs up to the enemy, or the tunnel and ladder underneath"><img src="../images/fpslevel/room-start.webp" width="1379" height="884" loading="lazy" decoding="async" alt="The first room: a tall staircase up to an enemy on a ledge, a ladder on the right and a dark tunnel ahead"></a></div>
+          <p class="reel-tile-label">First room</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1340 / 815">
+          <div class="reel-media"><a href="../images/fpslevel/room-tunnel.webp" data-zoom data-zoom-group="fps" data-caption="Stairs path — an enemy around a corner, and another up on a ledge ahead that you can spot early by looking up"><img src="../images/fpslevel/room-tunnel.webp" width="1340" height="815" loading="lazy" decoding="async" alt="An enemy aiming a rifle from around a corner in a narrow hallway, with another enemy’s head just visible on a ledge at the far end"></a></div>
+          <p class="reel-tile-label">Stairs path</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1032 / 592">
+          <div class="reel-media"><a href="../images/fpslevel/room-arena.webp" data-zoom data-zoom-group="fps" data-caption="Arena — enemies above and holes along the walls to take cover in"><img src="../images/fpslevel/room-arena.webp" width="1032" height="592" loading="lazy" decoding="async" alt="A tall arena with an enemy tucked into a hole in the wall and another on the ledge above"></a></div>
+          <p class="reel-tile-label">Arena holes</p>
+        </div>
+        <div class="reel-tile reel-tile--span" style="--tar: 1172 / 293">
+          <div class="reel-media"><a href="../images/fpslevel/room-final.webp" data-zoom data-zoom-group="fps" data-caption="Final room — expanded after playtesting, with enemies above and below behind more cover"><img src="../images/fpslevel/room-final.webp" width="1172" height="293" loading="lazy" decoding="async" alt="A wide final room with enemies behind blocks of cover on two levels, lit yellow on one side and green on the other"></a></div>
+          <p class="reel-tile-label">Final room</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>The rooms</b> — the stairs path winds through a tight hallway with sharp turns and an enemy firing down from above, then opens into a tall arena where the holes along the walls become cover. The tunnel underneath is all close combat, with enemies tucked into corners. The final room puts enemies on two levels, above and below you.</figcaption>
+    </figure>
+
+    <figure class="reel-block side side-wide side-grid" id="b-fps-dev">
+      <div class="reel-pair reel-grid2" style="--ar: 5 / 3">
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/leveldesign/fps-early-1.webp" data-zoom data-zoom-group="fps-dev" data-caption="In development — the arena, with enemies placed in the holes along the walls and up on the ledges"><img src="../images/leveldesign/fps-early-1.webp" width="1508" height="868" loading="lazy" decoding="async" alt="The arena in the editor, with enemies placed in holes along the lower walls and on the ledges above"></a></div>
+          <p class="reel-tile-label">Arena</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/leveldesign/fps-early-2.webp" data-zoom data-zoom-group="fps-dev" data-caption="In development — placing an enemy and its aim"><img src="../images/leveldesign/fps-early-2.webp" width="1520" height="910" loading="lazy" decoding="async" alt="An enemy mannequin in the editor, its red arrow showing where it aims, with two more enemies placed further back in the room"></a></div>
+          <p class="reel-tile-label">Enemy placement</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/leveldesign/fps-early-3.webp" data-zoom data-zoom-group="fps-dev" data-caption="In development — the first room, with the stairs and the ladder"><img src="../images/leveldesign/fps-early-3.webp" width="1520" height="910" loading="lazy" decoding="async" alt="The first room in the editor, with the staircase on the left and a ladder on the right"></a></div>
+          <p class="reel-tile-label">First room</p>
+        </div>
+        <div class="reel-tile">
+          <div class="reel-media"><a href="../images/leveldesign/fps-early-4.webp" data-zoom data-zoom-group="fps-dev" data-caption="In development — a long hallway with an enemy placed at the far end"><img src="../images/leveldesign/fps-early-4.webp" width="1517" height="915" loading="lazy" decoding="async" alt="A long hallway with checkered prototype walls and an enemy standing at the far end"></a></div>
+          <p class="reel-tile-label">Hallway</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>In development</b> — the level in the Unreal Engine 5 editor while I was blocking out the rooms and placing enemies. The first room still has the weapons chest in its original spot, before playtesting led me to move it to the end of the tunnel.</figcaption>
+    </figure>
+
+    <h3 class="reel-subgroup" id="playtesting">Playtest changes</h3>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>Nearly every tester took the stairs and skipped the tunnel. I moved the weapons chest to the end of the tunnel to draw players in, and added a chest on the stairs path so both routes reward you.</li>
+      <li>A long ladder up to the arena slowed the pace, so I swapped it for a bounce pad, as one tester suggested.</li>
+      <li>The final room was far too simple, with two enemies wandering on two layers. I expanded the lower floor and added more enemies and cover for a real final fight.</li>
+      <li>Most testers finished at very low health, so I added health packs through the level.</li>
+      <li>One tester walked back to the start without realizing it, so I added yellow lights on paths that lead back and green lights on the way forward.</li>
+    </ul>
+
+    <h2 class="reel-group" id="portal">Portal 2 Puzzle</h2>
+    <p class="reel-group-intro">This three-room puzzle level teaches lasers and redirection cubes. The first room is a low-risk place to learn the cube, the second uses portals to bend the beam, and the last pulls both together.</p>
+
+    <figure class="reel-block side side-wide" id="b-portal-video">
+      <div class="reel-media reel-embed" style="--ar: 16 / 9">
+        <a class="reel-yt" href="https://www.youtube.com/watch?v=U9gbmzlfkJ4" data-yt="U9gbmzlfkJ4" aria-label="Play video: Portal 2 puzzle playthrough">
+          <img src="../images/leveldesign/portal-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
+          <span class="reel-chip"><span aria-hidden="true">&#9656; </span>Watch playthrough</span>
+        </a>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Playthrough</b> — a run through all three rooms of the revised level, built in Portal 2’s Puzzle Maker.</figcaption>
+    </figure>
+
+    <figure class="reel-block" id="b-portal-plan">
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 3 / 2; --cols: minmax(0, 1.147fr) minmax(0, 1.824fr) minmax(0, 2.002fr) minmax(0, 1.640fr)">
+        <div class="reel-tile" style="--tar: 758 / 661">
+          <div class="reel-media"><a href="../images/leveldesign/portal-map.webp" data-zoom data-zoom-group="portal" data-caption="Detailed map — the three sections, with the lasers, catchers, relay and which walls take portals"><img src="../images/leveldesign/portal-map.webp" width="758" height="661" loading="lazy" decoding="async" alt="A diagram of the three rooms marking lasers, laser catchers, the relay, portal and non-portal surfaces, and the moving platform"></a></div>
+          <p class="reel-tile-label">Detailed map</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1346 / 738">
+          <div class="reel-media"><a href="../images/leveldesign/portal-room1.webp" data-zoom data-zoom-group="portal" data-caption="Room 1 — the intro to the cube, with the lasers, the catcher and the weighted button behind a field"><img src="../images/leveldesign/portal-room1.webp" width="1346" height="738" loading="lazy" decoding="async" alt="Cutaway view of the first room, with glass panels, laser emitters, the redirection cube and a weighted button room"></a></div>
+          <p class="reel-tile-label">Room 1 · build</p>
+        </div>
+        <div class="reel-tile" style="--tar: 979 / 489">
+          <div class="reel-media"><a href="../images/leveldesign/portal-hall.webp" data-zoom data-zoom-group="portal" data-caption="Room 2 — a long hall over water, where a portal on the ceiling bends the laser down to start the moving platform"><img src="../images/leveldesign/portal-hall.webp" width="979" height="489" loading="lazy" decoding="async" alt="Cutaway view of a long hall over water with a moving platform and a laser running its length"></a></div>
+          <p class="reel-tile-label">Room 2 · build</p>
+        </div>
+        <div class="reel-tile" style="--tar: 925 / 564">
+          <div class="reel-media"><a href="../images/leveldesign/portal-room3.webp" data-zoom data-zoom-group="portal" data-caption="Room 3 — the cube on its own platform, the relay and the exit catcher behind fields"><img src="../images/leveldesign/portal-room3.webp" width="925" height="564" loading="lazy" decoding="async" alt="Cutaway view of the final room with a raised platform, a laser relay and the exit door"></a></div>
+          <p class="reel-tile-label">Room 3 · build</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Plan &amp; build</b> — the detailed map I drew first, then the initial build. In the last room the twist is that you carry the cube back to the start, send the laser through a relay to drop the fields, then use a portal behind the relay to aim it into the catcher that opens the exit.</figcaption>
+    </figure>
+
+    <h3 class="reel-subgroup">Playtest changes</h3>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>The opening lasers were a bit misleading and didn’t teach much, so I added laser fields behind them that switch off when you reflect a beam away with the cube, as an early lesson in using it.</li>
+      <li>The second room drew the most complaints. I shortened the hall, made the portal surface on the ceiling easier to line up with the catcher, and replaced the water under the moving platform with a lift, so falling no longer meant starting over.</li>
+      <li>The third room was the best received and barely changed. I made its back wall non-portalable so players couldn’t skip the puzzle.</li>
+    </ul>
+
+    <h2 class="reel-group" id="battleblock">BattleBlock Theater Level</h2>
+    <p class="reel-group-intro">“The Cliff” is a platformer level about exploring with very little information. You take a leap of faith off a cliff, then climb back up through water, spikes and lasers that get harder as you go, ending in a fight against ranged enemies at the top.</p>
+
+    <figure class="reel-block side side-wide" id="b-bb-video">
+      <div class="reel-media reel-embed" style="--ar: 16 / 9">
+        <a class="reel-yt" href="https://www.youtube.com/watch?v=syRvxYvM29g" data-yt="syRvxYvM29g" aria-label="Play video: BattleBlock Theater level playthrough, The Cliff">
+          <img src="../images/leveldesign/bb-poster.jpg" width="1280" height="720" alt="" loading="lazy" decoding="async">
+          <span class="reel-chip"><span aria-hidden="true">&#9656; </span>Watch playthrough</span>
+        </a>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Playthrough</b> — a run through the revised level, built in BattleBlock Theater’s level editor.</figcaption>
+    </figure>
+
+    <figure class="reel-block" id="b-bb-plan">
+      <div class="reel-trio reel-grid reel-justify" style="--ar: 2 / 1; --cols: minmax(0, 2.000fr) minmax(0, 1.749fr) minmax(0, 1.819fr)">
+        <div class="reel-tile" style="--tar: 2048 / 1024">
+          <div class="reel-media"><a href="../images/leveldesign/bb-sketch.webp" data-zoom data-zoom-group="bb" data-caption="Level sketch — the block-by-block plan, with a key for hazards, gems, checkpoints and enemies"><img src="../images/leveldesign/bb-sketch.webp" width="2048" height="1024" loading="lazy" decoding="async" alt="A block grid sketch of the level beside a color key for blocks, hazards, gems, checkpoints and enemies"></a></div>
+          <p class="reel-tile-label">Level sketch</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1595 / 912">
+          <div class="reel-media"><a href="../images/leveldesign/bb-overview.webp" data-zoom data-zoom-group="bb" data-caption="Built level — the whole level in the editor, from the cliff at the top to the water below"><img src="../images/leveldesign/bb-overview.webp" width="1595" height="912" loading="lazy" decoding="async" alt="The whole level in the BattleBlock Theater editor, green blocks and water under a red theater curtain"></a></div>
+          <p class="reel-tile-label">Built level</p>
+        </div>
+        <div class="reel-tile" style="--tar: 1814 / 997">
+          <div class="reel-media"><a href="../images/leveldesign/bb-ice.webp" data-zoom data-zoom-group="bb" data-caption="Ice jumps — widened after playtesting, with recovery holes under the pillars"><img src="../images/leveldesign/bb-ice.webp" width="1814" height="997" loading="lazy" decoding="async" alt="A player jumping between ice blocks over water"></a></div>
+          <p class="reel-tile-label">Ice jumps</p>
+        </div>
+      </div>
+      <figcaption class="reel-cap"><span class="entry-tag">Level Design</span> <b>Plan &amp; build</b> — the block-by-block sketch I drew first, then the built level. It’s meant to be learned by dying once and running it again with what you now know, with hidden shortcuts and optional gems for players who explore.</figcaption>
+    </figure>
+
+    <h3 class="reel-subgroup">Playtest changes</h3>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>The ice jumps were the hardest part of a timed level, so I widened one tier of the ice platforms and added recovery holes under the pillars.</li>
+      <li>Players used an enemy’s head as a step to skip a climb, so I moved the enemy into the wall.</li>
+      <li>Most testers wanted a checkpoint after the big water pit. I didn’t think the jump was that hard, but enough players struggled that I added one anyway.</li>
+      <li>The final climb was too easy, so I added a ranged enemy at the top that shoots down while you wait on the ladder.</li>
+    </ul>
+
+    <h2 class="reel-group" id="takeaways">Takeaways</h2>
+    <ul class="reel-pm-list reel-takeaways">
+      <li>The first two levels I made, BattleBlock and Portal 2, were hard for the sake of being hard. That works if the game is built around punishing challenge, but for the average player it caused more frustration than satisfying difficulty. A lot of the playtest fixes gave players a way to recover from a mistake, like recovery holes, a lift in place of deadly water and an extra checkpoint.</li>
+      <li>In the FPS level, most players missed the height advantages because they were focused on the enemy right in front of them. A sign pointing up as they enter a room might help them find those on their own.</li>
+      <li>In Portal 2, the rooms that built on what players already knew went over best. The third room brought the lasers and portals from the earlier rooms together and was the best received. The second room’s out-of-the-box portal trick was hard to pick up on, and it drew the most complaints.</li>
+    </ul>
+
+    <div class="reel-end">
+      <div class="reel-contact">
+        <span class="reel-contact-k">Contact</span>
+        <a href="mailto:noahkasper9@gmail.com">noahkasper9@gmail.com</a>
+        <a href="https://www.linkedin.com/in/noahkasper/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="../Noah_Kasper_Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <a class="dl-btn dl-secondary" href="../index.html#work"><span aria-hidden="true">← </span>All Work</a>
+      <a class="reel-next" href="page-d3d12.html">
+        <span class="reel-next-k">Next project</span>
+        <span class="reel-next-v">DIRECT3D 12 RENDERER&nbsp;<span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="foot-l">© 2026 Noah Kasper</span>
+  <span class="foot-r" aria-hidden="true">SYS:OK</span>
+</footer>
+</body>
+</html>

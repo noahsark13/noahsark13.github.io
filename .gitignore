@@ -1,0 +1,40 @@
+# Local tools and OS files
+.claude/
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Working notes in the image folders (not part of the site)
+images/**/_README.txt
+
+# Raw sources. The pages use the web copies (.webp / .jpg / .mp4) and
+# the two PDFs below; the originals stay local.
+images/**/*.gif
+images/**/*.GIF
+images/**/*.png
+images/**/*.PNG
+images/**/*.jfif
+images/**/*.docx
+images/**/*.pdf
+!images/entropy/production/game-design-doc.pdf
+!images/entropy/03-greybox/level-one-design-doc.pdf
+images/entropy/old/
+images/entropy/concept/
+images/entropy/production/aaaaa.jpg
+
+# Working folders: PDF sources and raw image extracts.
+images/**/source/
+images/**/extract/
+
+# Authoring template and unused leftovers (not linked from any page)
+projects/_template-reel.html
+images/entropy/05-alien/old-alien/first-pass.mp4
+images/entropy/05-alien/old-alien/first-pass-poster.jpg
+images/entropy/gameplay/props.webp
+images/entropy/production/review-log-1.webp
+images/studies/truchet-poster.jpg
+projects/embeds/truchet.html
+images/fpslevel/card.webp
+
+# Old hero model (replaced by models/40kModel.fbx)
+models/HelmetDecimated.fbx
