@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Noah Kasper</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // links from when the site lived under /portfolio/ go to the same page at the root
+    (function () {
+      var p = location.pathname;
+      if (/^\/portfolio(\/|$)/.test(p)) {
+        location.replace(p.replace(/^\/portfolio\/?/, '/') + location.search + location.hash);
+      }
+    })();
+  </script>
+  <link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=87">
+</head>
+<body>
+  <main style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; max-width: 1200px; margin: 0 auto;">
+    <p style="font-family: var(--f-ui); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px;">404</p>
+    <h1 style="font-family: var(--f-display); font-weight: 700; font-size: clamp(36px, 6vw, 72px); line-height: 0.95; color: var(--ink); margin-bottom: 24px;">PAGE NOT<br>FOUND.</h1>
+    <p style="font-size: 13px; color: var(--ink-2); line-height: 1.8;">That page doesn’t exist. <a href="/" style="color: var(--cyan);">Go to the portfolio</a></p>
+  </main>
+</body>
+</html>
